@@ -20,6 +20,7 @@ namespace MangaFatihi.Application.CQRS.Queries
         public RefreshTokenLoginQueryValidator()
         {
             RuleFor(x => x.RefreshToken)
+                .Must(x => Guid.TryParse(x, out _)).WithMessage(ApplicationMessages.ErrorRefreshTokenQueryRefreshTokenTypeError.GetMessage())
                 .NotNull().WithMessage(ApplicationMessages.ErrorRefreshTokenQueryRefreshTokenIsNull.GetMessage())
                 .NotEmpty().WithMessage(ApplicationMessages.ErrorRefreshTokenQueryRefreshTokenIsNull.GetMessage());
 

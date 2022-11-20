@@ -17,6 +17,7 @@
         public static readonly string ErrorUserLoginQueryEmailIsNull = "USER_LOGIN_EMAIL_IS_NULL";
         public static readonly string ErrorUserLoginQueryPasswordIsNull = "USER_LOGIN_PASSWORD_IS_NULL";
         public static readonly string ErrorRefreshTokenQueryRefreshTokenIsNull = "REFRESH_TOKEN_LOGIN_REFRESH_TOKEN_IS_NULL";
+        public static readonly string ErrorRefreshTokenQueryRefreshTokenTypeError = "REFRESH_TOKEN_LOGIN_REFRESH_TOKEN_TYPE_ERROR";
 
 
         //success
@@ -43,6 +44,7 @@
             { ErrorUserLoginQueryEmailIsNull, "E-Posta zorunlu!" },
             { ErrorUserLoginQueryPasswordIsNull, "Şifre zorunlu!" },
             { ErrorRefreshTokenQueryRefreshTokenIsNull, "Refresh Token zorunlu!" },
+            { ErrorRefreshTokenQueryRefreshTokenTypeError, "Refresh Token yanlış format!" },
 
 
         };

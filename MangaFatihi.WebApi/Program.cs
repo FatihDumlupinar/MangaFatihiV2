@@ -3,6 +3,14 @@ using MangaFatihi.Application.Seed;
 using MangaFatihi.Persistence.Extensions;
 using MangaFatihi.WebApi.Extensions;
 using MangaFatihi.WebApi.Handlers;
+using Microsoft.AspNetCore.HttpLogging;
+using Serilog;
+using System.Diagnostics;
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +29,21 @@ var configuration = new ConfigurationBuilder()
 var config = configuration.Build();
 
 #endregion
+
+builder.Host.UseSerilog();
+
+Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg)); Serilog.Debugging.SelfLog.Enable(Console.Error);
+
+builder.Services.AddHttpLogging(logging =>
+{
+    logging.LoggingFields = HttpLoggingFields.All;
+    logging.RequestHeaders.Add("sec-ch-ua");
+    //logging.ResponseHeaders.Add("MyResponseHeader");//eðer geriye döndüðün custom response headers varsa;
+    logging.MediaTypeOptions.AddText("application/javascript");
+    logging.RequestBodyLogLimit = 4096;
+    logging.ResponseBodyLogLimit = 4096;
+
+});
 
 builder.Services.AddMediatRConfig();
 
@@ -45,6 +68,8 @@ builder.Services.AddFluentValidationConfig();
 #pragma warning restore CS0612 // Type or member is obsolete
 
 var app = builder.Build();
+
+app.UseHttpLogging();
 
 app.UseCustomExceptionHandler();
 

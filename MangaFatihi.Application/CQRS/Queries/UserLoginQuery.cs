@@ -14,7 +14,7 @@ namespace MangaFatihi.Application.CQRS.Queries
         public string Password { get; set; } = "";
 
         [IgnoreDataMember]
-        public string IpAddress { get; set; } = "";
+        public string? IpAddress { get; set; } = "";
     }
 
     public class UserLoginQueryValidator : AbstractValidator<UserLoginQuery>

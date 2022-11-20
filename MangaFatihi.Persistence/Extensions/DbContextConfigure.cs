@@ -10,7 +10,7 @@ namespace MangaFatihi.Persistence.Extensions
         /// <summary>
         /// DbContext ayarları ve veritabanı bağlantısı
         /// </summary>
-        public static IServiceCollection AddDbContextConfigure(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDbContextConfig(this IServiceCollection services, IConfiguration configuration)
         {
             //sadece yazma, değiştirme yetkisi olan veritabanı bağlantısı ve onun için kullanılacak olan DbContext
             services.AddDbContext<WriteDbContext>(options =>

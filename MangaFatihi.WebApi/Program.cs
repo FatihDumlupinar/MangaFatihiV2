@@ -24,7 +24,7 @@ var config = configuration.Build();
 
 builder.Services.AddMediatRConfig();
 
-builder.Services.AddDbContextConfigure(config);
+builder.Services.AddDbContextConfig(config);
 
 builder.Services.AddDependecyConfig();
 
@@ -39,6 +39,10 @@ builder.Services.AddJwtTokenAuthentication(config);
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddEndpointsApiExplorer();
+
+#pragma warning disable CS0612 // Type or member is obsolete
+builder.Services.AddFluentValidationConfig();
+#pragma warning restore CS0612 // Type or member is obsolete
 
 var app = builder.Build();
 

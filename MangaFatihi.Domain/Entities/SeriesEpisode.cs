@@ -22,11 +22,16 @@ namespace MangaFatihi.Domain.Entities
         public bool IsOnAir { get; set; } = true;
 
         public virtual AppUser? EditorUser { get; set; }
+        public Guid? EditorUserId { get; set; }
 
         public virtual AppUser? TranslatorUser { get; set; }
+        public Guid? TranslatorUserId { get; set; }
 
         public virtual Series Series { get; set; }
+        public Guid SeriesId { get; set; }
+
         public virtual StaticSeriesEpisodeType StaticSeriesEpisodeTypes { get; set; }
+        public int StaticSeriesEpisodeTypesId { get; set; }
 
         public virtual IList<SeriesEpisodesPage> SeriesEpisodesPages { get; set; }
     }

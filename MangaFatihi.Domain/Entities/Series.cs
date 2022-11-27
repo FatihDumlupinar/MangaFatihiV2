@@ -4,14 +4,29 @@ namespace MangaFatihi.Domain.Entities
 {
     public class Series : BaseEntity
     {
+        /// <summary>
+        /// Serinin Başlığı
+        /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// Serinin alternatif veya farklı dillerdeki başlıkları
+        /// </summary>
         public string? TitleAlternative { get; set; }
 
+        /// <summary>
+        /// Serinin özet hikayesi
+        /// </summary>
         public string? Story { get; set; }
 
-        public string ProfileImgUrl { get; set; }
+        /// <summary>
+        /// Serinin kapak fotoğrafı
+        /// </summary>
+        public string? ProfileImgUrl { get; set; }
 
+        /// <summary>
+        /// Seri ile ilgili not
+        /// </summary>
         public string? Note { get; set; }
 
         /// <summary>
@@ -39,14 +54,22 @@ namespace MangaFatihi.Domain.Entities
         /// </summary>
         public bool IsNew { get; set; } = false;
 
-        //Bire çok ilişkiler
+        /// <summary>
+        /// Serinin durum bilgisi
+        /// </summary>
         public virtual StaticSeriesStatus StaticSeriesStatus { get; set; }
-        public virtual StaticSeriesType StaticSeriesTypes { get; set; }
+        public int StaticSeriesStatusId { get; set; }
 
-        //Çoka çok ilişkiler
-        public virtual IList<SeriesArtist> SeriesArtists { get; set; }
-        public virtual IList<SeriesAuthor> SeriesAuthors { get; set; }
-        public virtual IList<SeriesCategory> SeriesCategories { get; set; }
+        /// <summary>
+        /// Serinin Türü
+        /// </summary>
+        public virtual StaticSeriesType StaticSeriesTypes { get; set; }
+        public int StaticSeriesTypesId { get; set; }
+
+        public virtual IList<SeriesAndSeriesArtist> SeriesAndSeriesArtists { get; set; }
+        public virtual IList<SeriesAndSeriesAuthor> SeriesAndSeriesAuthor { get; set; }
+        public virtual IList<SeriesAndSeriesCategory> SeriesAndSeriesCategories { get; set; }
+
         public virtual IList<SeriesEpisode> SeriesEpisodes { get; set; }
 
 

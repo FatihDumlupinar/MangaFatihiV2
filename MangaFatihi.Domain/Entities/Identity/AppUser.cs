@@ -1,4 +1,5 @@
-﻿using MangaFatihi.Domain.Entities.Identity;
+﻿using MangaFatihi.Domain.Common;
+using MangaFatihi.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace MangaFatihi.Domain.Entities
@@ -14,11 +15,16 @@ namespace MangaFatihi.Domain.Entities
         /// </summary>
         public int? Gender { get; set; }
 
-        public virtual StaticCountry? StaticCountry { get; set; }
-        public virtual StaticCity? StaticCity { get; set; }
         public virtual Team? Team { get; set; }
+        public Guid? TeamId { get; set; }
 
         public virtual IList<RefreshToken> RefreshTokens { get; set; }
+
+        public bool IsActive { get; set; }
+        public DateTime CreateDate { get; set; }
+        public Guid CreateUserId { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        public Guid? UpdateUserId { get; set; }
 
     }
 }

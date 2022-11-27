@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MangaFatihi.Persistence.Migrations
 {
     [DbContext(typeof(WriteDbContext))]
-    [Migration("20221113192303_InitialDb")]
+    [Migration("20221127061333_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,12 +110,6 @@ namespace MangaFatihi.Persistence.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("StaticCityId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("StaticCountryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("TeamId")
                         .HasColumnType("uniqueidentifier");
 
@@ -136,13 +130,46 @@ namespace MangaFatihi.Persistence.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("StaticCityId");
-
-                    b.HasIndex("StaticCountryId");
-
                     b.HasIndex("TeamId");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.Identity.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AccessToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("RefreshToken");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.Series", b =>
@@ -176,17 +203,16 @@ namespace MangaFatihi.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfileImgUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("StartDateOnPage")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("StaticSeriesStatusId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("StaticSeriesStatusId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("StaticSeriesTypesId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("StaticSeriesTypesId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Story")
                         .HasColumnType("nvarchar(max)");
@@ -211,6 +237,114 @@ namespace MangaFatihi.Persistence.Migrations
                     b.HasIndex("StaticSeriesTypesId");
 
                     b.ToTable("Series");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesArtist", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("SeriesArtistId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SeriesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeriesArtistId");
+
+                    b.HasIndex("SeriesId");
+
+                    b.ToTable("SeriesAndSeriesArtists");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesAuthor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("SeriesAuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SeriesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeriesAuthorId");
+
+                    b.HasIndex("SeriesId");
+
+                    b.ToTable("SeriesAndSeriesAuthors");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("SeriesCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SeriesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeriesCategoryId");
+
+                    b.HasIndex("SeriesId");
+
+                    b.ToTable("SeriesAndSeriesCategories");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesArtist", b =>
@@ -336,8 +470,8 @@ namespace MangaFatihi.Persistence.Migrations
                     b.Property<Guid>("SeriesId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("StaticSeriesEpisodeTypesId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("StaticSeriesEpisodeTypesId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -383,11 +517,9 @@ namespace MangaFatihi.Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PageContent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PageImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PageNo")
@@ -409,132 +541,14 @@ namespace MangaFatihi.Persistence.Migrations
                     b.ToTable("SeriesEpisodesPages");
                 });
 
-            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticCity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StaticCities");
-                });
-
-            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticContactType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StaticContactTypes");
-                });
-
-            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticCountry", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StaticCountries");
-                });
-
             modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesEpisodeType", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -543,31 +557,12 @@ namespace MangaFatihi.Persistence.Migrations
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesStatus", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -576,31 +571,12 @@ namespace MangaFatihi.Persistence.Migrations
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesType", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreateUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("No")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdateUserId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -752,82 +728,36 @@ namespace MangaFatihi.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SeriesSeriesArtist", b =>
-                {
-                    b.Property<Guid>("SeriesArtistsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SeriesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("SeriesArtistsId", "SeriesId");
-
-                    b.HasIndex("SeriesId");
-
-                    b.ToTable("SeriesSeriesArtist");
-                });
-
-            modelBuilder.Entity("SeriesSeriesAuthor", b =>
-                {
-                    b.Property<Guid>("SeriesAuthorsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SeriesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("SeriesAuthorsId", "SeriesId");
-
-                    b.HasIndex("SeriesId");
-
-                    b.ToTable("SeriesSeriesAuthor");
-                });
-
-            modelBuilder.Entity("SeriesSeriesCategory", b =>
-                {
-                    b.Property<Guid>("SeriesCategoriesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SeriesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("SeriesCategoriesId", "SeriesId");
-
-                    b.HasIndex("SeriesId");
-
-                    b.ToTable("SeriesSeriesCategory");
-                });
-
             modelBuilder.Entity("MangaFatihi.Domain.Entities.AppUser", b =>
                 {
-                    b.HasOne("MangaFatihi.Domain.Entities.StaticCity", "StaticCity")
-                        .WithMany()
-                        .HasForeignKey("StaticCityId");
-
-                    b.HasOne("MangaFatihi.Domain.Entities.StaticCountry", "StaticCountry")
-                        .WithMany()
-                        .HasForeignKey("StaticCountryId");
-
                     b.HasOne("MangaFatihi.Domain.Entities.Team", "Team")
                         .WithMany("AppUser")
                         .HasForeignKey("TeamId");
 
-                    b.Navigation("StaticCity");
-
-                    b.Navigation("StaticCountry");
-
                     b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.Identity.RefreshToken", b =>
+                {
+                    b.HasOne("MangaFatihi.Domain.Entities.AppUser", "AppUser")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.Series", b =>
                 {
                     b.HasOne("MangaFatihi.Domain.Entities.StaticSeriesStatus", "StaticSeriesStatus")
-                        .WithMany()
+                        .WithMany("Series")
                         .HasForeignKey("StaticSeriesStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MangaFatihi.Domain.Entities.StaticSeriesType", "StaticSeriesTypes")
-                        .WithMany()
+                        .WithMany("Series")
                         .HasForeignKey("StaticSeriesTypesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -835,6 +765,63 @@ namespace MangaFatihi.Persistence.Migrations
                     b.Navigation("StaticSeriesStatus");
 
                     b.Navigation("StaticSeriesTypes");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesArtist", b =>
+                {
+                    b.HasOne("MangaFatihi.Domain.Entities.SeriesArtist", "SeriesArtist")
+                        .WithMany("SeriesAndSeriesArtists")
+                        .HasForeignKey("SeriesArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MangaFatihi.Domain.Entities.Series", "Series")
+                        .WithMany("SeriesAndSeriesArtists")
+                        .HasForeignKey("SeriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Series");
+
+                    b.Navigation("SeriesArtist");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesAuthor", b =>
+                {
+                    b.HasOne("MangaFatihi.Domain.Entities.SeriesAuthor", "SeriesAuthor")
+                        .WithMany("SeriesAndSeriesAuthors")
+                        .HasForeignKey("SeriesAuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MangaFatihi.Domain.Entities.Series", "Series")
+                        .WithMany("SeriesAndSeriesAuthor")
+                        .HasForeignKey("SeriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Series");
+
+                    b.Navigation("SeriesAuthor");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAndSeriesCategory", b =>
+                {
+                    b.HasOne("MangaFatihi.Domain.Entities.SeriesCategory", "SeriesCategory")
+                        .WithMany("SeriesAndSeriesCategories")
+                        .HasForeignKey("SeriesCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MangaFatihi.Domain.Entities.Series", "Series")
+                        .WithMany("SeriesAndSeriesCategories")
+                        .HasForeignKey("SeriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Series");
+
+                    b.Navigation("SeriesCategory");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesEpisode", b =>
@@ -850,7 +837,7 @@ namespace MangaFatihi.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("MangaFatihi.Domain.Entities.StaticSeriesEpisodeType", "StaticSeriesEpisodeTypes")
-                        .WithMany()
+                        .WithMany("SeriesEpisodes")
                         .HasForeignKey("StaticSeriesEpisodeTypesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -930,59 +917,55 @@ namespace MangaFatihi.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SeriesSeriesArtist", b =>
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.AppUser", b =>
                 {
-                    b.HasOne("MangaFatihi.Domain.Entities.SeriesArtist", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesArtistsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MangaFatihi.Domain.Entities.Series", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SeriesSeriesAuthor", b =>
-                {
-                    b.HasOne("MangaFatihi.Domain.Entities.SeriesAuthor", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesAuthorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MangaFatihi.Domain.Entities.Series", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SeriesSeriesCategory", b =>
-                {
-                    b.HasOne("MangaFatihi.Domain.Entities.SeriesCategory", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesCategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MangaFatihi.Domain.Entities.Series", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("RefreshTokens");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.Series", b =>
                 {
+                    b.Navigation("SeriesAndSeriesArtists");
+
+                    b.Navigation("SeriesAndSeriesAuthor");
+
+                    b.Navigation("SeriesAndSeriesCategories");
+
                     b.Navigation("SeriesEpisodes");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesArtist", b =>
+                {
+                    b.Navigation("SeriesAndSeriesArtists");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesAuthor", b =>
+                {
+                    b.Navigation("SeriesAndSeriesAuthors");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesCategory", b =>
+                {
+                    b.Navigation("SeriesAndSeriesCategories");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.SeriesEpisode", b =>
                 {
                     b.Navigation("SeriesEpisodesPages");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesEpisodeType", b =>
+                {
+                    b.Navigation("SeriesEpisodes");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesStatus", b =>
+                {
+                    b.Navigation("Series");
+                });
+
+            modelBuilder.Entity("MangaFatihi.Domain.Entities.StaticSeriesType", b =>
+                {
+                    b.Navigation("Series");
                 });
 
             modelBuilder.Entity("MangaFatihi.Domain.Entities.Team", b =>

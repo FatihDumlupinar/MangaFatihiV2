@@ -6,8 +6,7 @@ namespace MangaFatihi.Domain.Entities
     {
         public string Name { get; set; }
 
-        //Çoka çok ilişkiler
-        public virtual IList<Series> Series { get; set; }
+        public virtual IList<SeriesAndSeriesCategory> SeriesAndSeriesCategories { get; set; }
 
     }
 }

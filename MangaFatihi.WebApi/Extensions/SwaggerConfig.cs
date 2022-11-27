@@ -1,5 +1,6 @@
 ﻿using MangaFatihi.WebApi.Filters;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace MangaFatihi.WebApi.Extensions
 {
@@ -38,6 +39,14 @@ namespace MangaFatihi.WebApi.Extensions
                             new string[] {}
                     }
                 });
+
+                //not: Katmanda sağ tık properties de Debug altında xml documentation u açmayı unutma!
+
+                //Api de bulunan <summary> lerin swagger da gösterilmesi için xml dosyasını swagger a tanımlıyoruz
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), true);
+
+                //Application katmanında bulunan <summary> leri swagger a tanımlıyoruz 
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Application.xml"), true);
 
                 c.SchemaFilter<HideParametersSwaggerSchemaFilter>();
             });

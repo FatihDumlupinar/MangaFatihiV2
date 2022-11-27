@@ -14,20 +14,20 @@ namespace MangaFatihi.WebApi.Controllers
         [HttpPost("login")]
         [ProducesResponseType(typeof(SuccessDataResult<UserLoginQueryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> LoginAsync(UserLoginQuery query)
+        public async Task<IActionResult> LoginAsync(UserLoginQuery query, CancellationToken cancellation)
         {
             query.IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
-            var result = await Mediator.Send(query);
+            var result = await Mediator.Send(query, cancellation);
             return CustomStandartReturnAction(result);
         }
 
         [HttpPost("refresh-token-login")]
         [ProducesResponseType(typeof(SuccessDataResult<RefreshTokenLoginQueryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> RefreshTokenLoginAsync(RefreshTokenLoginQuery query)
+        public async Task<IActionResult> RefreshTokenLoginAsync(RefreshTokenLoginQuery query, CancellationToken cancellation)
         {
             query.IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
-            var result = await Mediator.Send(query);
+            var result = await Mediator.Send(query, cancellation);
             return CustomStandartReturnAction(result);
         }
 

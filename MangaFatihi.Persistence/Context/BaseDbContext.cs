@@ -46,6 +46,9 @@ namespace MangaFatihi.Persistence.Context
         }
 
         public DbSet<Series> Series { get; set; }
+        public DbSet<SeriesAndSeriesArtist> SeriesAndSeriesArtists { get; set; }
+        public DbSet<SeriesAndSeriesAuthor> SeriesAndSeriesAuthors { get; set; }
+        public DbSet<SeriesAndSeriesCategory> SeriesAndSeriesCategories { get; set; }
         public DbSet<SeriesArtist> SeriesArtists { get; set; }
         public DbSet<SeriesAuthor> SeriesAuthors { get; set; }
         public DbSet<SeriesCategory> SeriesCategories { get; set; }
@@ -54,11 +57,7 @@ namespace MangaFatihi.Persistence.Context
         public DbSet<StaticSeriesEpisodeType> StaticSeriesEpisodeTypes { get; set; }
         public DbSet<StaticSeriesStatus> StaticSeriesStatus { get; set; }
         public DbSet<StaticSeriesType> StaticSeriesTypes { get; set; }
-        public DbSet<StaticCity> StaticCities { get; set; }
-        public DbSet<StaticContactType> StaticContactTypes { get; set; }
-        public DbSet<StaticCountry> StaticCountries { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     }
 }

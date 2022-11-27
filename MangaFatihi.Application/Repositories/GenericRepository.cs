@@ -58,29 +58,14 @@ namespace MangaFatihi.Application.Repositories
             }, cancellationToken);
         }
 
-        public virtual IQueryable<T> Find(Expression<Func<T, bool>> expression)
+        public virtual IQueryable<T> Find(Expression<Func<T, bool>>? expression = default)
         {
-            return _readOnlyDbContext.Set<T>().Where(expression);
-        }
-
-        public virtual IQueryable<T> FindAll()
-        {
-            return _readOnlyDbContext.Set<T>();
-        }
-
-        public virtual T? FindOne(Expression<Func<T?, bool>> expression)
-        {
-            return _readOnlyDbContext.Set<T>().FirstOrDefault(expression);
+            return expression == null ? _readOnlyDbContext.Set<T>() : _readOnlyDbContext.Set<T>().Where(expression);
         }
 
         public virtual Task<T?> FindOneAsync(Expression<Func<T?, bool>> expression, CancellationToken cancellationToken = default)
         {
             return _readOnlyDbContext.Set<T>().FirstOrDefaultAsync(expression, cancellationToken);
-        }
-
-        public T? GetById(Guid id)
-        {
-            return _readOnlyDbContext.Set<T>().FirstOrDefault(i => i.IsActive && i.Id == id);
         }
 
         public virtual Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)

@@ -9,5 +9,6 @@ namespace MangaFatihi.Domain.Entities.Identity
         public string? AccessToken { get; set; }
 
         public virtual AppUser AppUser { get; set; }
+        public Guid AppUserId { get; set; }
     }
 }

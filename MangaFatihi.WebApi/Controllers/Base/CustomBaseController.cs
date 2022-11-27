@@ -17,24 +17,23 @@ namespace MangaFatihi.WebApi.Controllers.Base
         #region Fields
 
         private IMediator _mediator;
+
         private ILogger<T> _logger;
 
 
         #endregion
 
-        #region Property
-        
+        #region Properties
+
         /// <summary>
         /// CQRS için kullanılan Mediator 
         /// </summary>
-        protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
+        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
         /// <summary>
         /// Controller katmanında loglama için kullanılan Logger
         /// </summary>
-        protected ILogger<T> Logger => _logger ?? (_logger = HttpContext.RequestServices.GetService<ILogger<T>>()); 
-
-
+        protected ILogger<T> Logger => _logger ??= HttpContext.RequestServices.GetService<ILogger<T>>();
 
         #endregion
 

@@ -75,71 +75,11 @@ namespace MangaFatihi.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StaticCities",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StaticCities", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StaticContactTypes",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StaticContactTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StaticCountries",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StaticCountries", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StaticSeriesEpisodeTypes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -150,14 +90,8 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "StaticSeriesStatus",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -168,14 +102,8 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "StaticSeriesTypes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    No = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -232,15 +160,15 @@ namespace MangaFatihi.Persistence.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TitleAlternative = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Story = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProfileImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProfileImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BroadcastStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     StartDateOnPage = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsUpToDate = table.Column<bool>(type: "bit", nullable: false),
                     IsSlyder = table.Column<bool>(type: "bit", nullable: false),
                     IsNew = table.Column<bool>(type: "bit", nullable: false),
-                    StaticSeriesStatusId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StaticSeriesTypesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StaticSeriesStatusId = table.Column<int>(type: "int", nullable: false),
+                    StaticSeriesTypesId = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -273,8 +201,6 @@ namespace MangaFatihi.Persistence.Migrations
                     About = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfileImg = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<int>(type: "int", nullable: true),
-                    StaticCountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    StaticCityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TeamId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -295,16 +221,6 @@ namespace MangaFatihi.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_StaticCities_StaticCityId",
-                        column: x => x.StaticCityId,
-                        principalTable: "StaticCities",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_StaticCountries_StaticCountryId",
-                        column: x => x.StaticCountryId,
-                        principalTable: "StaticCountries",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_AspNetUsers_Teams_TeamId",
                         column: x => x.TeamId,
                         principalTable: "Teams",
@@ -312,72 +228,90 @@ namespace MangaFatihi.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SeriesSeriesArtist",
+                name: "SeriesAndSeriesArtists",
                 columns: table => new
                 {
-                    SeriesArtistsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesArtistId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SeriesSeriesArtist", x => new { x.SeriesArtistsId, x.SeriesId });
+                    table.PrimaryKey("PK_SeriesAndSeriesArtists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesArtist_Series_SeriesId",
+                        name: "FK_SeriesAndSeriesArtists_Series_SeriesId",
                         column: x => x.SeriesId,
                         principalTable: "Series",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesArtist_SeriesArtists_SeriesArtistsId",
-                        column: x => x.SeriesArtistsId,
+                        name: "FK_SeriesAndSeriesArtists_SeriesArtists_SeriesArtistId",
+                        column: x => x.SeriesArtistId,
                         principalTable: "SeriesArtists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SeriesSeriesAuthor",
+                name: "SeriesAndSeriesAuthors",
                 columns: table => new
                 {
-                    SeriesAuthorsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesAuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SeriesSeriesAuthor", x => new { x.SeriesAuthorsId, x.SeriesId });
+                    table.PrimaryKey("PK_SeriesAndSeriesAuthors", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesAuthor_Series_SeriesId",
+                        name: "FK_SeriesAndSeriesAuthors_Series_SeriesId",
                         column: x => x.SeriesId,
                         principalTable: "Series",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesAuthor_SeriesAuthors_SeriesAuthorsId",
-                        column: x => x.SeriesAuthorsId,
+                        name: "FK_SeriesAndSeriesAuthors_SeriesAuthors_SeriesAuthorId",
+                        column: x => x.SeriesAuthorId,
                         principalTable: "SeriesAuthors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SeriesSeriesCategory",
+                name: "SeriesAndSeriesCategories",
                 columns: table => new
                 {
-                    SeriesCategoriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SeriesCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SeriesSeriesCategory", x => new { x.SeriesCategoriesId, x.SeriesId });
+                    table.PrimaryKey("PK_SeriesAndSeriesCategories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesCategory_Series_SeriesId",
+                        name: "FK_SeriesAndSeriesCategories_Series_SeriesId",
                         column: x => x.SeriesId,
                         principalTable: "Series",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SeriesSeriesCategory_SeriesCategories_SeriesCategoriesId",
-                        column: x => x.SeriesCategoriesId,
+                        name: "FK_SeriesAndSeriesCategories_SeriesCategories_SeriesCategoryId",
+                        column: x => x.SeriesCategoryId,
                         principalTable: "SeriesCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -469,6 +403,31 @@ namespace MangaFatihi.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RefreshToken",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IpAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccessToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AppUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RefreshToken", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RefreshToken_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SeriesEpisodes",
                 columns: table => new
                 {
@@ -482,7 +441,7 @@ namespace MangaFatihi.Persistence.Migrations
                     EditorUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TranslatorUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SeriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StaticSeriesEpisodeTypesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StaticSeriesEpisodeTypesId = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -522,8 +481,8 @@ namespace MangaFatihi.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PageNo = table.Column<int>(type: "int", nullable: false),
-                    PageImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PageContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PageImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PageContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SeriesEpisodesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -575,16 +534,6 @@ namespace MangaFatihi.Persistence.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_StaticCityId",
-                table: "AspNetUsers",
-                column: "StaticCityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_StaticCountryId",
-                table: "AspNetUsers",
-                column: "StaticCountryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_TeamId",
                 table: "AspNetUsers",
                 column: "TeamId");
@@ -597,6 +546,11 @@ namespace MangaFatihi.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RefreshToken_AppUserId",
+                table: "RefreshToken",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Series_StaticSeriesStatusId",
                 table: "Series",
                 column: "StaticSeriesStatusId");
@@ -605,6 +559,36 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "IX_Series_StaticSeriesTypesId",
                 table: "Series",
                 column: "StaticSeriesTypesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesArtists_SeriesArtistId",
+                table: "SeriesAndSeriesArtists",
+                column: "SeriesArtistId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesArtists_SeriesId",
+                table: "SeriesAndSeriesArtists",
+                column: "SeriesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesAuthors_SeriesAuthorId",
+                table: "SeriesAndSeriesAuthors",
+                column: "SeriesAuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesAuthors_SeriesId",
+                table: "SeriesAndSeriesAuthors",
+                column: "SeriesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesCategories_SeriesCategoryId",
+                table: "SeriesAndSeriesCategories",
+                column: "SeriesCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeriesAndSeriesCategories_SeriesId",
+                table: "SeriesAndSeriesCategories",
+                column: "SeriesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SeriesEpisodes_EditorUserId",
@@ -630,21 +614,6 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "IX_SeriesEpisodesPages_SeriesEpisodesId",
                 table: "SeriesEpisodesPages",
                 column: "SeriesEpisodesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SeriesSeriesArtist_SeriesId",
-                table: "SeriesSeriesArtist",
-                column: "SeriesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SeriesSeriesAuthor_SeriesId",
-                table: "SeriesSeriesAuthor",
-                column: "SeriesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SeriesSeriesCategory_SeriesId",
-                table: "SeriesSeriesCategory",
-                column: "SeriesId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -665,25 +634,22 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "RefreshToken");
+
+            migrationBuilder.DropTable(
+                name: "SeriesAndSeriesArtists");
+
+            migrationBuilder.DropTable(
+                name: "SeriesAndSeriesAuthors");
+
+            migrationBuilder.DropTable(
+                name: "SeriesAndSeriesCategories");
+
+            migrationBuilder.DropTable(
                 name: "SeriesEpisodesPages");
 
             migrationBuilder.DropTable(
-                name: "SeriesSeriesArtist");
-
-            migrationBuilder.DropTable(
-                name: "SeriesSeriesAuthor");
-
-            migrationBuilder.DropTable(
-                name: "SeriesSeriesCategory");
-
-            migrationBuilder.DropTable(
-                name: "StaticContactTypes");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "SeriesEpisodes");
 
             migrationBuilder.DropTable(
                 name: "SeriesArtists");
@@ -695,6 +661,9 @@ namespace MangaFatihi.Persistence.Migrations
                 name: "SeriesCategories");
 
             migrationBuilder.DropTable(
+                name: "SeriesEpisodes");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
@@ -702,12 +671,6 @@ namespace MangaFatihi.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "StaticSeriesEpisodeTypes");
-
-            migrationBuilder.DropTable(
-                name: "StaticCities");
-
-            migrationBuilder.DropTable(
-                name: "StaticCountries");
 
             migrationBuilder.DropTable(
                 name: "Teams");

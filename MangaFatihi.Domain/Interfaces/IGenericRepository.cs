@@ -6,13 +6,10 @@ namespace MangaFatihi.Domain.Interfaces
     public interface IGenericRepository<T> where T : BaseEntity
     {
         Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        T? GetById(Guid id);
 
         Task<T?> FindOneAsync(Expression<Func<T?, bool>> expression, CancellationToken cancellationToken = default);
-        T? FindOne(Expression<Func<T?, bool>> expression);
 
-        IQueryable<T> Find(Expression<Func<T, bool>> expression);
-        IQueryable<T> FindAll();
+        IQueryable<T> Find(Expression<Func<T, bool>>? expression = default);
 
         Task<T> AddAsyncReturnEntity(T entity, CancellationToken cancellationToken = default);
 

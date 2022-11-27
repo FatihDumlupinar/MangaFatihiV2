@@ -1,5 +1,8 @@
 ﻿namespace MangaFatihi.Application.Constants
 {
+    /// <summary>
+    /// Kullanıcıya dönen statik mesajlar
+    /// </summary>
     public static class ApplicationMessages
     {
         #region Message Codes
@@ -16,13 +19,21 @@
         public static readonly string ErrorModelStateValidation = "ERROR_MODEL_VALIDATION";
         public static readonly string ErrorUserLoginQueryEmailIsNull = "USER_LOGIN_EMAIL_IS_NULL";
         public static readonly string ErrorUserLoginQueryPasswordIsNull = "USER_LOGIN_PASSWORD_IS_NULL";
-        public static readonly string ErrorRefreshTokenQueryRefreshTokenIsNull = "REFRESH_TOKEN_LOGIN_REFRESH_TOKEN_IS_NULL";
-        public static readonly string ErrorRefreshTokenQueryRefreshTokenTypeError = "REFRESH_TOKEN_LOGIN_REFRESH_TOKEN_TYPE_ERROR";
+        public static readonly string ErrorSeriesNotFound = "SERIES_NOT_FOUND";
+
+        public static readonly string ErrorDefaultTypeError = "DEFAULT_TYPE_ERROR";
+        public static readonly string ErrorDefaultIsNull = "DEFAULT_IS_NULL";
 
 
         //success
         public static readonly string SuccessLogin = "USER_LOGIN_SUCCESS";
         public static readonly string SuccessRefreshTokenLogin = "REFRESH_TOKEN_LOGIN_SUCCESS";
+        public static readonly string SuccessGetListProcess = "SUCCESS_GET_LIST_PROCESS";
+        public static readonly string SuccessGetDetailsProcess = "SUCCESS_GET_DETAILS_PROCESS";
+        public static readonly string SuccessAddProcess = "SUCCESS_ADD_PROCESS";
+        public static readonly string SuccessUpdateProcess = "SUCCESS_UPDATE_PROCESS";
+        public static readonly string SuccessDeleteProcess = "SUCCESS_DELETE_PROCESS";
+
 
 
         #endregion
@@ -43,9 +54,16 @@
             { ErrorModelStateValidation, "Kabul edilemez model!" },
             { ErrorUserLoginQueryEmailIsNull, "E-Posta zorunlu!" },
             { ErrorUserLoginQueryPasswordIsNull, "Şifre zorunlu!" },
-            { ErrorRefreshTokenQueryRefreshTokenIsNull, "Refresh Token zorunlu!" },
-            { ErrorRefreshTokenQueryRefreshTokenTypeError, "Refresh Token yanlış format!" },
+            { ErrorSeriesNotFound, "Veritabanında böyle bir seri bulunamadı!" },
 
+            { ErrorDefaultIsNull, "\'{0}\' zorunlu!" },
+            { ErrorDefaultTypeError, "\'{0}\' yanlış format!" },
+
+            { SuccessGetListProcess, "Verinin listesi getirme işlemi başarılı." },
+            { SuccessAddProcess, "Veri ekleme işlemi başarılı." },
+            { SuccessUpdateProcess, "Veri güncelleme işlemi başarılı." },
+            { SuccessDeleteProcess, "Veri silme işlemi başarılı." },
+            { SuccessGetDetailsProcess, "Veri detayı getirme işlemi başarılı." },
 
         };
 

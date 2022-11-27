@@ -13,7 +13,6 @@ namespace MangaFatihi.Domain.Entities
         public string? ProfileImageUrl { get; set; }
         public string? Description { get; set; }
 
-        //Çoka bir ilişkiler
         public virtual IList<AppUser> AppUser { get; set; }
 
     }

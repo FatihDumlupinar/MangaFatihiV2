@@ -19,12 +19,58 @@ namespace MangaFatihi.Application.Seed
 
             using var scope = services.CreateScope();
 
-            var writeDbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();
+            using var writeDbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();
 
             await writeDbContext.Database.MigrateAsync(cancelTokenSource.Token);
 
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
+            #region Statik Bilgiler
+
+            if (!await writeDbContext.StaticSeriesStatus.AnyAsync(cancelTokenSource.Token))
+            {
+                await writeDbContext.StaticSeriesStatus.AddRangeAsync(new List<StaticSeriesStatus>()
+                {
+                    new() { Id=(int)StaticSeriesStatusEnm.ongoing, Name=EnumHelper<StaticSeriesStatusEnm>.GetDisplayValue(StaticSeriesStatusEnm.ongoing) },
+                    new() { Id=(int)StaticSeriesStatusEnm.stopped, Name=EnumHelper<StaticSeriesStatusEnm>.GetDisplayValue(StaticSeriesStatusEnm.stopped) },
+                    new() { Id=(int)StaticSeriesStatusEnm.finished, Name=EnumHelper<StaticSeriesStatusEnm>.GetDisplayValue(StaticSeriesStatusEnm.finished) },
+                    new() { Id=(int)StaticSeriesStatusEnm.cancelled, Name=EnumHelper<StaticSeriesStatusEnm>.GetDisplayValue(StaticSeriesStatusEnm.cancelled) },
+
+                }, cancelTokenSource.Token);
+
+                await writeDbContext.SaveChangesAsync(cancelTokenSource.Token);
+
+            }
+
+            if (!await writeDbContext.StaticSeriesTypes.AnyAsync(cancelTokenSource.Token))
+            {
+                await writeDbContext.StaticSeriesTypes.AddRangeAsync(new List<StaticSeriesType>()
+                {
+                    new(){Id=(int)StaticSeriesTypeEnm.manga,Name=EnumHelper<StaticSeriesTypeEnm>.GetDisplayValue(StaticSeriesTypeEnm.manga) },
+                    new(){Id=(int)StaticSeriesTypeEnm.webtoon,Name=EnumHelper<StaticSeriesTypeEnm>.GetDisplayValue(StaticSeriesTypeEnm.webtoon) },
+                    new(){Id=(int)StaticSeriesTypeEnm.manhua,Name=EnumHelper<StaticSeriesTypeEnm>.GetDisplayValue(StaticSeriesTypeEnm.manhua) },
+                    new(){Id=(int)StaticSeriesTypeEnm.manhwa,Name=EnumHelper<StaticSeriesTypeEnm>.GetDisplayValue(StaticSeriesTypeEnm.manhwa) },
+                    new(){Id=(int)StaticSeriesTypeEnm.novel,Name=EnumHelper<StaticSeriesTypeEnm>.GetDisplayValue(StaticSeriesTypeEnm.novel) },
+
+                }, cancelTokenSource.Token);
+
+                await writeDbContext.SaveChangesAsync(cancelTokenSource.Token);
+            }
+
+            if (!await writeDbContext.StaticSeriesEpisodeTypes.AnyAsync(cancelTokenSource.Token))
+            {
+                await writeDbContext.StaticSeriesEpisodeTypes.AddRangeAsync(new List<StaticSeriesEpisodeType>()
+                {
+                    new(){Id=(int)StaticSeriesEpisodeTypeEnm.image,Name=EnumHelper<StaticSeriesEpisodeTypeEnm>.GetDisplayValue(StaticSeriesEpisodeTypeEnm.image) },
+                    new(){Id=(int)StaticSeriesEpisodeTypeEnm.text,Name=EnumHelper<StaticSeriesEpisodeTypeEnm>.GetDisplayValue(StaticSeriesEpisodeTypeEnm.text) },
+
+                }, cancelTokenSource.Token);
+
+                await writeDbContext.SaveChangesAsync(cancelTokenSource.Token);
+            }
+
+            #endregion
+
+            using var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+            using var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
 
             #region Role
 

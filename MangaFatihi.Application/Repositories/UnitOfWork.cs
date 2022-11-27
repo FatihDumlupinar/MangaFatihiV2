@@ -2,6 +2,7 @@
 using MangaFatihi.Domain.Entities.Identity;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace MangaFatihi.Application.Repositories
 {
@@ -20,8 +21,11 @@ namespace MangaFatihi.Application.Repositories
         private readonly IGenericRepository<SeriesEpisodesPage> _seriesEpisodesPage;
         private readonly IGenericRepository<Team> _team;
         private readonly IGenericRepository<RefreshToken> _refreshToken;
+        private readonly IGenericRepository<SeriesAndSeriesArtist> _seriesAndSeriesArtist;
+        private readonly IGenericRepository<SeriesAndSeriesAuthor> _seriesAndSeriesAuthor;
+        private readonly IGenericRepository<SeriesAndSeriesCategory> _seriesAndSeriesCategory;
 
-        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken)
+        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory)
         {
             _writeDbContext = writeDbContext;
             _readOnlyDbContext = readOnlyDbContext;
@@ -33,6 +37,9 @@ namespace MangaFatihi.Application.Repositories
             _seriesEpisodesPage = seriesEpisodesPage;
             _team = team;
             _refreshToken = refreshToken;
+            _seriesAndSeriesArtist = seriesAndSeriesArtist;
+            _seriesAndSeriesAuthor = seriesAndSeriesAuthor;
+            _seriesAndSeriesCategory = seriesAndSeriesCategory;
         }
 
 
@@ -41,14 +48,28 @@ namespace MangaFatihi.Application.Repositories
         #region Properties
 
         public IGenericRepository<Series> Series => _series;
+
         public IGenericRepository<SeriesArtist> SeriesArtist => _seriesArtist;
+
         public IGenericRepository<SeriesAuthor> SeriesAuthor => _seriesAuthor;
+
         public IGenericRepository<SeriesCategory> SeriesCategory => _seriesCategory;
+
         public IGenericRepository<SeriesEpisode> SeriesEpisode => _seriesEpisode;
+
         public IGenericRepository<SeriesEpisodesPage> SeriesEpisodesPage => _seriesEpisodesPage;
+
         public IGenericRepository<Team> Team => _team;
+
         public IGenericRepository<RefreshToken> RefreshToken => _refreshToken;
 
+        public IGenericRepository<SeriesAndSeriesArtist> SeriesAndSeriesArtist => _seriesAndSeriesArtist;
+
+        public IGenericRepository<SeriesAndSeriesAuthor> SeriesAndSeriesAuthor => _seriesAndSeriesAuthor;
+
+        public IGenericRepository<SeriesAndSeriesCategory> SeriesAndSeriesCategory => _seriesAndSeriesCategory;
+
+        public DbContext DbContext => _readOnlyDbContext;
 
 
         #endregion
@@ -62,13 +83,29 @@ namespace MangaFatihi.Application.Repositories
             return _writeDbContext.SaveChangesAsync(cancellationToken);
         }
 
+        private bool disposedValue = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    _writeDbContext.Dispose();
+                    _readOnlyDbContext.Dispose();
+                }
+
+                disposedValue = true;
+            }
+        }
+
         /// <summary>
         /// Veritabanı için oluşturulmuş DbContext'leri Dispose eder. (Dispose = kullanılan kaynağı serbest bırakır.)
         /// </summary>
         public void Dispose()
         {
-            _writeDbContext.Dispose();
-            _readOnlyDbContext.Dispose();
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

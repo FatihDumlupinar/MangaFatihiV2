@@ -35,11 +35,9 @@ namespace MangaFatihi.Application.Handlers.Queries
 
         public async Task<DataResult<RefreshTokenLoginQueryDto>> Handle(RefreshTokenLoginQuery request, CancellationToken cancellationToken)
         {
-            var returnModel = new RefreshTokenLoginQueryDto();
-
             var refreshToken = Guid.Parse(request.RefreshToken);
 
-            var refreshTokenEntity = _unitOfWork.RefreshToken.GetById(refreshToken);
+            var refreshTokenEntity =await _unitOfWork.RefreshToken.GetByIdAsync(refreshToken, cancellationToken);
             if (refreshTokenEntity == null)
             {
                 return new ErrorDataResult<RefreshTokenLoginQueryDto>(ApplicationMessages.ErrorLoginRefreshTokenNotFound.GetMessage(), ApplicationMessages.ErrorLoginRefreshTokenNotFound);
@@ -70,6 +68,8 @@ namespace MangaFatihi.Application.Handlers.Queries
             }
 
             var token = await _tokenHandler.CreateAccessTokenAsync(user, request.IpAddress, cancellationToken);
+
+            var returnModel = new RefreshTokenLoginQueryDto();
 
             returnModel.RefreshToken = token.RefreshToken;
             returnModel.AccessToken = token.AccessToken;

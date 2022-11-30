@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.HttpLogging;
 using Serilog;
 using System.Diagnostics;
 
+
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
@@ -45,13 +46,13 @@ builder.Services.AddHttpLogging(logging =>
 
 });
 
-builder.Services.AddMediatRConfig();
-
 builder.Services.AddDbContextConfig(config);
 
 builder.Services.AddDependecyConfig();
 
 builder.Services.AddControllersConfig();
+
+builder.Services.AddMediatrConfig();
 
 builder.Services.AddIdentityConfig();
 

@@ -1,8 +1,7 @@
-﻿using MangaFatihi.Application.CQRS.Commands;
-using MangaFatihi.Application.CQRS.Queries;
-using MangaFatihi.Application.Models.Base;
-using MangaFatihi.Application.Models.DTOs.Commands;
-using MangaFatihi.Application.Models.DTOs.Queries;
+﻿using MangaFatihi.Application.Models.DTOs.Queries;
+using MangaFatihi.Models.Base;
+using MangaFatihi.Models.CQRS.Bindings.Commands;
+using MangaFatihi.Models.CQRS.Bindings.Queries;
 using MangaFatihi.WebApi.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,7 +43,7 @@ namespace MangaFatihi.WebApi.Controllers
         /// Yeni seri oluşturan servis
         /// </summary>
         [HttpPost]
-        [ProducesResponseType(typeof(SuccessDataResult<CreateSeriesCommandDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateSeriesAsync(CreateSeriesCommand command, CancellationToken cancellation)
         {
@@ -57,7 +56,7 @@ namespace MangaFatihi.WebApi.Controllers
         /// </summary>
         /// <param name="seriesId">Serinin Unique Id'si</param>
         [HttpPut("{seriesId}")]
-        [ProducesResponseType(typeof(SuccessDataResult<EditSeriesCommandDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> EditSeriesAsync(EditSeriesCommand command, string seriesId, CancellationToken cancellation)
         {
@@ -70,7 +69,7 @@ namespace MangaFatihi.WebApi.Controllers
         /// </summary>
         /// <param name="seriesId">Serinin Unique Id'si</param>
         [HttpDelete("{seriesId}")]
-        [ProducesResponseType(typeof(SuccessDataResult<DeleteSeriesCommandDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteSeriesAsync(string seriesId, CancellationToken cancellation)
         {

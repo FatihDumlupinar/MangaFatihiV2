@@ -1,11 +1,10 @@
 ﻿using MangaFatihi.Application.Authorize;
-using MangaFatihi.Application.Models.Auth;
 using MangaFatihi.Domain.Entities;
 using MangaFatihi.Domain.Interfaces;
+using MangaFatihi.Models.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

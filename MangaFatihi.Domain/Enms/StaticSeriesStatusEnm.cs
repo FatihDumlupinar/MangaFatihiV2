@@ -4,16 +4,28 @@ namespace MangaFatihi.Domain.Enms
 {
     public enum StaticSeriesStatusEnm
     {
-        [Display(Name = "Manga")]
+        /// <summary>
+        /// Devam Ediyor
+        /// </summary>
+        [Display(Name = "Devam Ediyor")]
         ongoing = 1,
 
-        [Display(Name = "Manga")]
+        /// <summary>
+        /// Durduruldu
+        /// </summary>
+        [Display(Name = "Durduruldu")]
         stopped = 2,
 
-        [Display(Name = "Manga")]
+        /// <summary>
+        /// Bitti
+        /// </summary>
+        [Display(Name = "Bitti")]
         finished = 3,
 
-        [Display(Name = "Manga")]
+        /// <summary>
+        /// İptal Edildi
+        /// </summary>
+        [Display(Name = "İptal Edildi")]
         cancelled = 4,
 
     }

@@ -1,5 +1,5 @@
-﻿using MangaFatihi.Application.Constants;
-using MangaFatihi.Application.Models.Base;
+﻿using MangaFatihi.Domain.Constants;
+using MangaFatihi.Models.Base;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
 

@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaFatihi.Persistence", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaFatihi.WebApi", "MangaFatihi.WebApi\MangaFatihi.WebApi.csproj", "{DB9D3F0D-B452-43EA-9350-3B2AD7102864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaFatihi.Infrastructure", "MangaFatihi.Infrastructure\MangaFatihi.Infrastructure.csproj", "{C1565F0E-DF80-4B93-9028-7D13E021668A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaFatihi.Infrastructure", "MangaFatihi.Infrastructure\MangaFatihi.Infrastructure.csproj", "{C1565F0E-DF80-4B93-9028-7D13E021668A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{5E56DBA5-521F-4D89-AC61-99D1AA9EAD22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaFatihi.Models", "MangaFatihi.Models\MangaFatihi.Models.csproj", "{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{C1565F0E-DF80-4B93-9028-7D13E021668A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1565F0E-DF80-4B93-9028-7D13E021668A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1565F0E-DF80-4B93-9028-7D13E021668A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{40B0C38E-FCAD-48E4-A4EB-CED52DB17337} = {A94222AC-5298-40D7-8AE2-88D043FDE784}
 		{DB9D3F0D-B452-43EA-9350-3B2AD7102864} = {90E9E9BC-52C2-458A-BDE0-3EDAB30F8865}
 		{C1565F0E-DF80-4B93-9028-7D13E021668A} = {A94222AC-5298-40D7-8AE2-88D043FDE784}
+		{F7A7A512-9F7F-41EA-A55B-01B5D4B57CC3} = {5E56DBA5-521F-4D89-AC61-99D1AA9EAD22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5316D521-66B4-495B-A4EE-9EEA06CB3D68}

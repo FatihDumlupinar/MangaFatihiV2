@@ -1,6 +1,6 @@
-﻿using MangaFatihi.Application.CQRS.Queries;
-using MangaFatihi.Application.Models.Base;
-using MangaFatihi.Application.Models.DTOs.Queries;
+﻿using MangaFatihi.Application.Models.DTOs.Queries;
+using MangaFatihi.Models.Base;
+using MangaFatihi.Models.CQRS.Bindings.Queries;
 using MangaFatihi.WebApi.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 

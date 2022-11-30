@@ -1,6 +1,8 @@
 ﻿using MangaFatihi.WebApi.Filters;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace MangaFatihi.WebApi.Extensions
 {
@@ -43,12 +45,22 @@ namespace MangaFatihi.WebApi.Extensions
                 //not: Katmanda sağ tık properties de Debug altında xml documentation u açmayı unutma!
 
                 //Api de bulunan <summary> lerin swagger da gösterilmesi için xml dosyasını swagger a tanımlıyoruz
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), true);
+                //c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), true);
 
                 //Application katmanında bulunan <summary> leri swagger a tanımlıyoruz 
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Application.xml"), true);
+                //c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Application.xml"), true);
 
                 c.SchemaFilter<HideParametersSwaggerSchemaFilter>();
+
+                var dir = new DirectoryInfo(AppContext.BaseDirectory);
+
+                foreach (var fi in dir.EnumerateFiles("*.xml"))
+                {
+                    var doc = XDocument.Load(fi.FullName);
+                    c.IncludeXmlComments(() => new XPathDocument(doc.CreateReader()), true);
+                    c.SchemaFilter<DescribeEnumMembersSchemaFilter>(doc);
+                }
+
             });
         }
 

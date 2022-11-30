@@ -1,5 +1,5 @@
-﻿using MangaFatihi.Application.Models.Base;
-using MediatR;
+﻿using MangaFatihi.Models.Base;
+using Mediator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MangaFatihi.WebApi.Controllers.Base

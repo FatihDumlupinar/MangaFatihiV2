@@ -1,5 +1,5 @@
-﻿using MangaFatihi.Application.Models.Auth;
-using MangaFatihi.Domain.Entities;
+﻿using MangaFatihi.Domain.Entities;
+using MangaFatihi.Models.Auth;
 
 namespace MangaFatihi.Application.Handlers.Auth
 {

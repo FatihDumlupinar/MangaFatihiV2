@@ -12,6 +12,16 @@ namespace MangaFatihi.WebApi.Handlers
         /// </summary>
         public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
         {
+            builder.Use((context, next) =>
+            {
+                context.Response.OnStarting(() =>
+                {
+                    return Task.CompletedTask;
+                });
+
+                return next();
+            });
+
             builder.UseExceptionHandler(config =>
             {
                 config.Run(async context =>

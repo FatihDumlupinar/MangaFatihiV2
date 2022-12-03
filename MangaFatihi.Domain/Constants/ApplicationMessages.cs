@@ -59,7 +59,7 @@
             { ErrorDefaultIsNull, "\'{0}\' zorunlu!" },
             { ErrorDefaultTypeError, "\'{0}\' yanlış format!" },
 
-            { SuccessGetListProcess, "Verinin listesi getirme işlemi başarılı." },
+            { SuccessGetListProcess, "Veri listesi getirme işlemi başarılı." },
             { SuccessAddProcess, "Veri ekleme işlemi başarılı." },
             { SuccessUpdateProcess, "Veri güncelleme işlemi başarılı." },
             { SuccessDeleteProcess, "Veri silme işlemi başarılı." },

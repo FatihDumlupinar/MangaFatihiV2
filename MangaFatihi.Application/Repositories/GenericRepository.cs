@@ -21,34 +21,34 @@ namespace MangaFatihi.Application.Repositories
 
         #endregion
 
-        public virtual async Task AddAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual async ValueTask AddAsync(T entity, CancellationToken cancellationToken = default)
         {
             _ = await _writeDbContext.Set<T>().AddAsync(entity, cancellationToken);
         }
 
-        public virtual async Task<T> AddAsyncReturnEntity(T entity, CancellationToken cancellationToken = default)
+        public virtual async ValueTask<T> AddAsyncReturnEntity(T entity, CancellationToken cancellationToken = default)
         {
             var data = await _writeDbContext.Set<T>().AddAsync(entity, cancellationToken);
             return data.Entity;
         }
 
-        public virtual async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public virtual Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            await _writeDbContext.Set<T>().AddRangeAsync(entities, cancellationToken);
+            return _writeDbContext.Set<T>().AddRangeAsync(entities, cancellationToken);
         }
 
-        public virtual async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
-            await Task.Run(() =>
+            return Task.Run(() =>
             {
                 entity.IsActive = false;
                 _ = _writeDbContext.Set<T>().Update(entity);
             }, cancellationToken);
         }
 
-        public virtual async Task DeleteRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public virtual Task DeleteRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            await Task.Run(() =>
+            return Task.Run(() =>
             {
                 foreach (var entity in entities)
                 {
@@ -73,17 +73,17 @@ namespace MangaFatihi.Application.Repositories
             return _readOnlyDbContext.Set<T>().FirstOrDefaultAsync(i => i.IsActive && i.Id == id, cancellationToken);
         }
 
-        public virtual async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            await Task.Run(() =>
+            return Task.Run(() =>
             {
                 _ = _writeDbContext.Set<T>().Update(entity);
             }, cancellationToken);
         }
 
-        public virtual async Task UpdateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public virtual Task UpdateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            await Task.Run(() =>
+            return Task.Run(() =>
             {
                 foreach (var entity in entities)
                 {

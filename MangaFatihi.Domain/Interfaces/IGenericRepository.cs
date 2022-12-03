@@ -11,9 +11,9 @@ namespace MangaFatihi.Domain.Interfaces
 
         IQueryable<T> Find(Expression<Func<T, bool>>? expression = default);
 
-        Task<T> AddAsyncReturnEntity(T entity, CancellationToken cancellationToken = default);
+        ValueTask<T> AddAsyncReturnEntity(T entity, CancellationToken cancellationToken = default);
 
-        Task AddAsync(T entity, CancellationToken cancellationToken = default);
+        ValueTask AddAsync(T entity, CancellationToken cancellationToken = default);
         Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
 
         Task UpdateAsync(T entity, CancellationToken cancellationToken = default);

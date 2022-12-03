@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -37,17 +38,17 @@ namespace MangaFatihi.WebApi.Filters
             sb.AppendLine("<p>Possible values:</p>");
             sb.AppendLine("<ul>");
 
-            foreach (var EnumMemberName in Enum.GetNames(EnumType))
+            foreach (var name in Enum.GetValues(EnumType))
             {
-                var FullEnumMemberName = $"F:{EnumType.FullName}.{EnumMemberName}";
+                // Allows for large enums
+                var value = Convert.ToInt64(name);
+                var fullName = $"F:{EnumType.FullName}.{name}";
 
-                var EnumMemberDescription = mXmlComments.XPathEvaluate(
-                  $"normalize-space(//member[@name = '{FullEnumMemberName}']/summary/text())"
+                var description = mXmlComments.XPathEvaluate(
+                    $"normalize-space(//member[@name = '{fullName}']/summary/text())"
                 ) as string;
 
-                if (string.IsNullOrEmpty(EnumMemberDescription)) continue;
-
-                sb.AppendLine($"<li><b>{EnumMemberName}</b>: {EnumMemberDescription}</li>");
+                sb.AppendLine($"<li><b>{value} - {name}</b>: {description}</li>");
             }
 
             sb.AppendLine("</ul>");

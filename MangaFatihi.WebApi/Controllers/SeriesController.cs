@@ -18,9 +18,9 @@ namespace MangaFatihi.WebApi.Controllers
         /// Filtreye göre serileri getiren servis
         /// </summary>
         [HttpPost("get-list-with-filter")]
-        [ProducesResponseType(typeof(SuccessDataResult<SeriesGetListWithFilterQueryDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessDataResult<GetListSeriesWithFilterQueryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetListWithFilterAsync(SeriesGetListWithFilterQuery query, CancellationToken cancellation)
+        public async ValueTask<IActionResult> GetListWithFilterAsync(GetListSeriesWithFilterQuery query, CancellationToken cancellation)
         {
             var result = await Mediator.Send(query, cancellation);
             return CustomStandartReturnAction(result);
@@ -33,7 +33,7 @@ namespace MangaFatihi.WebApi.Controllers
         [HttpGet("{seriesId}")]
         [ProducesResponseType(typeof(SuccessDataResult<GetSeriesInformationQueryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetSeriesInformationAsync(string seriesId, CancellationToken cancellation)
+        public async ValueTask<IActionResult> GetInformationAsync(string seriesId, CancellationToken cancellation)
         {
             var result = await Mediator.Send(new GetSeriesInformationQuery() { SeriesId = seriesId }, cancellation);
             return CustomStandartReturnAction(result);
@@ -45,7 +45,7 @@ namespace MangaFatihi.WebApi.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateSeriesAsync(CreateSeriesCommand command, CancellationToken cancellation)
+        public async ValueTask<IActionResult> CreateAsync(CreateSeriesCommand command, CancellationToken cancellation)
         {
             var result = await Mediator.Send(command, cancellation);
             return CustomStandartReturnAction(result);
@@ -58,7 +58,7 @@ namespace MangaFatihi.WebApi.Controllers
         [HttpPut("{seriesId}")]
         [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> EditSeriesAsync(EditSeriesCommand command, string seriesId, CancellationToken cancellation)
+        public async ValueTask<IActionResult> EditAsync(EditSeriesCommand command, string seriesId, CancellationToken cancellation)
         {
             var result = await Mediator.Send(command, cancellation);
             return CustomStandartReturnAction(result);
@@ -71,7 +71,7 @@ namespace MangaFatihi.WebApi.Controllers
         [HttpDelete("{seriesId}")]
         [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteSeriesAsync(string seriesId, CancellationToken cancellation)
+        public async ValueTask<IActionResult> DeleteAsync(string seriesId, CancellationToken cancellation)
         {
             var result = await Mediator.Send(new DeleteSeriesCommand() { SeriesId = seriesId }, cancellation);
             return CustomStandartReturnAction(result);

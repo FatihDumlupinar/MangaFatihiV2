@@ -2,6 +2,9 @@
 
 namespace MangaFatihi.Domain.Enms
 {
+    /// <summary>
+    /// Serinin Durumları
+    /// </summary>
     public enum StaticSeriesStatusEnm
     {
         /// <summary>

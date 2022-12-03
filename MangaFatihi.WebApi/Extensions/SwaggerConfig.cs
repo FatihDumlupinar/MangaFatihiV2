@@ -45,21 +45,22 @@ namespace MangaFatihi.WebApi.Extensions
                 //not: Katmanda sağ tık properties de Debug altında xml documentation u açmayı unutma!
 
                 //Api de bulunan <summary> lerin swagger da gösterilmesi için xml dosyasını swagger a tanımlıyoruz
-                //c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), true);
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), true);
 
-                //Application katmanında bulunan <summary> leri swagger a tanımlıyoruz 
-                //c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Application.xml"), true);
+                //Models katmanında bulunan <summary> leri swagger a tanımlıyoruz 
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Models.xml"), true);
 
                 c.SchemaFilter<HideParametersSwaggerSchemaFilter>();
 
-                var dir = new DirectoryInfo(AppContext.BaseDirectory);
+                var domainDir = Path.Combine(AppContext.BaseDirectory, "MangaFatihi.Domain.xml");
 
-                foreach (var fi in dir.EnumerateFiles("*.xml"))
-                {
-                    var doc = XDocument.Load(fi.FullName);
-                    c.IncludeXmlComments(() => new XPathDocument(doc.CreateReader()), true);
-                    c.SchemaFilter<DescribeEnumMembersSchemaFilter>(doc);
-                }
+                //Domain katmanında bulunan <summary> leri swagger a tanımlıyoruz 
+                c.IncludeXmlComments(domainDir, true);
+
+                var doc = XDocument.Load(domainDir);
+
+                //Domain katmanındaki enumların descriptionlarını swagger a tanımlıyoruz
+                c.SchemaFilter<DescribeEnumMembersSchemaFilter>(doc);
 
             });
         }

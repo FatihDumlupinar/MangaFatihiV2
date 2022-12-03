@@ -13,7 +13,7 @@ namespace MangaFatihi.Application.Seed
 {
     public static class SeedData
     {
-        public static async Task EnsurePopulatedAsync(this IServiceProvider services)
+        public static async ValueTask EnsurePopulatedAsync(this IServiceProvider services)
         {
             using var cancelTokenSource = new CancellationTokenSource();
 

@@ -4,6 +4,7 @@ using MangaFatihi.Persistence.Extensions;
 using MangaFatihi.WebApi.Extensions;
 using MangaFatihi.WebApi.Handlers;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.IdentityModel.Logging;
 using Serilog;
 using System.Diagnostics;
 
@@ -56,9 +57,12 @@ builder.Services.AddMediatrConfig();
 
 builder.Services.AddIdentityConfig();
 
-builder.Services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+if (builder.Environment.IsDevelopment())
+{
+    IdentityModelEventSource.ShowPII = true;
+}
 
-builder.Services.AddJwtTokenAuthentication(config);
+builder.Services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
 builder.Services.AddSwaggerConfig();
 
@@ -67,6 +71,22 @@ builder.Services.AddEndpointsApiExplorer();
 #pragma warning disable CS0612 // Type or member is obsolete
 builder.Services.AddFluentValidationConfig();
 #pragma warning restore CS0612 // Type or member is obsolete
+
+builder.Services.AddJwtTokenAuthentication(config);
+
+//builder.Services.AddAuthorization(options =>
+//{
+
+//    #region Settings
+
+//    options.AddPolicy(PolicyTypes.Claims_Settings.List, policy => policy.RequireClaim(PolicyTypes.CustomClaimTypes.Permission, PolicyTypes.Claims_Settings.List));
+//    options.AddPolicy(PolicyTypes.Claims_Settings.Read, policy => policy.RequireClaim(PolicyTypes.CustomClaimTypes.Permission, PolicyTypes.Claims_Settings.Read));
+//    options.AddPolicy(PolicyTypes.Claims_Settings.Update, policy => policy.RequireClaim(PolicyTypes.CustomClaimTypes.Permission, PolicyTypes.Claims_Settings.Update));
+//    options.AddPolicy(PolicyTypes.Claims_Settings.Delete, policy => policy.RequireClaim(PolicyTypes.CustomClaimTypes.Permission, PolicyTypes.Claims_Settings.Delete));
+
+//    #endregion
+//});
+
 
 var app = builder.Build();
 

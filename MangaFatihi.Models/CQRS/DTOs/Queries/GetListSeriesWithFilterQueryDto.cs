@@ -2,7 +2,10 @@
 
 namespace MangaFatihi.Application.Models.DTOs.Queries
 {
-    public class SeriesGetListWithFilterQueryDto
+    /// <summary>
+    /// 
+    /// </summary>
+    public class GetListSeriesWithFilterQueryDto
     {
         /// <summary>
         /// Filtreye göre veritabanında bulunan verilerin listesi

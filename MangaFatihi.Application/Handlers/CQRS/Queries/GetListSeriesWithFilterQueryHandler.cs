@@ -10,27 +10,27 @@ using Mediator;
 
 namespace MangaFatihi.Application.Handlers.CQRS.Queries
 {
-    public class SeriesGetListWithFilterQueryHandler : IQueryHandler<SeriesGetListWithFilterQuery, DataResult<SeriesGetListWithFilterQueryDto>>
+    public class GetListSeriesWithFilterQueryHandler : IQueryHandler<GetListSeriesWithFilterQuery, DataResult<GetListSeriesWithFilterQueryDto>>
     {
         #region Ctor&Fields
 
         private readonly IUnitOfWork _unitOfWork;
 
-        public SeriesGetListWithFilterQueryHandler(IUnitOfWork unitOfWork)
+        public GetListSeriesWithFilterQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         #endregion
 
-        public async ValueTask<DataResult<SeriesGetListWithFilterQueryDto>> Handle(SeriesGetListWithFilterQuery request, CancellationToken cancellationToken)
+        public async ValueTask<DataResult<GetListSeriesWithFilterQueryDto>> Handle(GetListSeriesWithFilterQuery request, CancellationToken cancellationToken)
         {
             await using var _dbConnection = _unitOfWork.DbContext.Database.GetDbConnection();
 
             var dynoParams = new DynamicParameters();
             var sqlQuery = @"
                   SELECT
-                    s.Id AS SeriesId
+                    s.Id AS SeriesId,
                     s.Title AS SeriesTitle,
                     s.ProfileImgUrl AS SeriesProfileImgUrl,
                     s.BroadcastStartDate AS SeriesBroadcastStartDate,
@@ -50,27 +50,27 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
             #region Filters
 
-            if (request.SeriesArtistIds.Any())
+            if (request.SeriesArtistIds != null && request.SeriesArtistIds.Any())
             {
                 sqlQuery += @" AND s.Id IN (SELECT sasa.SeriesId FROM SeriesAndSeriesArtists sasa, SeriesArtists sa WHERE sasa.IsActive=1 AND sa.IsActive=1 AND sasa.SeriesArtistId=sa.Id AND sa.Id IN @SeriesArtistIds)";
                 dynoParams.Add("SeriesArtistIds", request.SeriesArtistIds);
             }
-            if (request.SeriesAuthorIds.Any())
+            if (request.SeriesAuthorIds != null && request.SeriesAuthorIds.Any())
             {
                 sqlQuery += @" AND s.Id IN (SELECT sasa.SeriesId FROM SeriesAndSeriesAuthors sasa, SeriesAuthors sa WHERE sasa.IsActive=1 AND sa.IsActive=1 AND sasa.SeriesAuthorId=sa.Id AND sa.Id IN @SeriesAuthorIds)";
                 dynoParams.Add("SeriesAuthorIds", request.SeriesAuthorIds);
             }
-            if (request.SeriesCategoryIds.Any())
+            if (request.SeriesCategoryIds != null && request.SeriesCategoryIds.Any())
             {
                 sqlQuery += @" AND s.Id IN (SELECT sasc.SeriesId FROM SeriesAndSeriesCategories sasc, SeriesCategories sc WHERE sasc.IsActive=1 AND sc.IsActive=1 AND sasc.SeriesCategoryId=sc.Id AND sc.Id IN @SeriesCategoryIds)";
                 dynoParams.Add("SeriesCategoryIds", request.SeriesCategoryIds);
             }
-            if (request.SeriesStatusIds.Any())
+            if (request.SeriesStatusIds != null && request.SeriesStatusIds.Any())
             {
                 sqlQuery += @" AND ssest.Id IN @SeriesStatusIds ";
                 dynoParams.Add("SeriesStatusIds", request.SeriesStatusIds);
             }
-            if (request.SeriesTypeIds.Any())
+            if (request.SeriesTypeIds != null && request.SeriesTypeIds.Any())
             {
                 sqlQuery += @" AND ssety.Id IN @SeriesTypeIds ";
                 dynoParams.Add("SeriesTypeIds", request.SeriesTypeIds);
@@ -217,13 +217,13 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
             #endregion
 
-            var returnModel = new SeriesGetListWithFilterQueryDto()
+            var returnModel = new GetListSeriesWithFilterQueryDto()
             {
                 List = seriesList.ToList(),
                 TotalCount = totalCount
             };
 
-            return new SuccessDataResult<SeriesGetListWithFilterQueryDto>(returnModel, ApplicationMessages.SuccessGetListProcess.GetMessage(), ApplicationMessages.SuccessGetListProcess);
+            return new SuccessDataResult<GetListSeriesWithFilterQueryDto>(returnModel, ApplicationMessages.SuccessGetListProcess.GetMessage(), ApplicationMessages.SuccessGetListProcess);
         }
     }
 }

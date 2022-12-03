@@ -2,6 +2,9 @@
 
 namespace MangaFatihi.Domain.Enms
 {
+    /// <summary>
+    /// Seri Türleri
+    /// </summary>
     public enum StaticSeriesTypeEnm
     {
         /// <summary>

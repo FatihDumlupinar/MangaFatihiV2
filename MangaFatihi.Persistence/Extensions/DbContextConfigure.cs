@@ -15,6 +15,7 @@ namespace MangaFatihi.Persistence.Extensions
             //sadece yazma, değiştirme yetkisi olan veritabanı bağlantısı ve onun için kullanılacak olan DbContext
             services.AddDbContext<WriteDbContext>(options =>
             {
+                options.UseLazyLoadingProxies();
                 options.UseSqlServer(configuration.GetConnectionString("WriteDbConnection"));
             });
 

@@ -2,6 +2,9 @@
 
 namespace MangaFatihi.Domain.Enms
 {
+    /// <summary>
+    /// Seri bölümlerinin türleri
+    /// </summary>
     public enum StaticSeriesEpisodeTypeEnm
     {
         /// <summary>

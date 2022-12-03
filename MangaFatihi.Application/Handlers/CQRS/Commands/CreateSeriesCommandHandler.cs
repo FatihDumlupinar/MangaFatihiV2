@@ -42,7 +42,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
 
             await _unitOfWork.CommitAsync(cancellationToken);
 
-            if (request.SeriesArtistIds.Any())
+            if (request.SeriesArtistIds != null && request.SeriesArtistIds.Any())
             {
                 var seriesArtists = await _unitOfWork.SeriesArtist
                     .Find(i => i.IsActive && request.SeriesArtistIds.Contains(i.Id))
@@ -63,7 +63,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
                     await _unitOfWork.CommitAsync(cancellationToken);
                 }
             }
-            if (request.SeriesAuthorIds.Any())
+            if (request.SeriesAuthorIds != null && request.SeriesAuthorIds.Any())
             {
                 var seriesAuthors = await _unitOfWork.SeriesAuthor
                     .Find(i => i.IsActive && request.SeriesAuthorIds.Contains(i.Id))
@@ -84,7 +84,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
                     await _unitOfWork.CommitAsync(cancellationToken);
                 }
             }
-            if (request.SeriesCategoryIds.Any())
+            if (request.SeriesCategoryIds != null && request.SeriesCategoryIds.Any())
             {
                 var seriesCategories = await _unitOfWork.SeriesCategory
                     .Find(i => i.IsActive && request.SeriesCategoryIds.Contains(i.Id))

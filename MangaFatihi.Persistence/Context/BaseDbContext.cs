@@ -29,7 +29,7 @@ namespace MangaFatihi.Persistence.Context
                 }
             }
 
-            var modified = this.ChangeTracker.Entries()
+            var modified = ChangeTracker.Entries()
             .Where(t => t.State == EntityState.Modified)
             .Select(t => t.Entity)
             .ToArray();
@@ -58,6 +58,8 @@ namespace MangaFatihi.Persistence.Context
         public DbSet<StaticSeriesStatus> StaticSeriesStatus { get; set; }
         public DbSet<StaticSeriesType> StaticSeriesTypes { get; set; }
         public DbSet<Team> Teams { get; set; }
+
+
 
     }
 }

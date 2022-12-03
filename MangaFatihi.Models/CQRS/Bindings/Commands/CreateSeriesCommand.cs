@@ -71,17 +71,17 @@ namespace MangaFatihi.Models.CQRS.Bindings.Commands
         /// <summary>
         /// Serinin Sanatçıları
         /// </summary>
-        public List<Guid> SeriesArtistIds { get; set; } = new();
+        public List<Guid>? SeriesArtistIds { get; set; } = new();
 
         /// <summary>
         /// Serinin Yazarları
         /// </summary>
-        public List<Guid> SeriesAuthorIds { get; set; } = new();
+        public List<Guid>? SeriesAuthorIds { get; set; } = new();
 
         /// <summary>
         /// Serinin kategorileri
         /// </summary>
-        public List<Guid> SeriesCategoryIds { get; set; } = new();
+        public List<Guid>? SeriesCategoryIds { get; set; } = new();
 
         //bölümleri seri oluşturulduktan sonra farklı bir servis ile eklenecek
     }

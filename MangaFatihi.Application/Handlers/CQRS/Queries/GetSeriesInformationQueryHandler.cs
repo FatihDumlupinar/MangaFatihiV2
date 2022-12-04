@@ -34,9 +34,9 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
             var seriesId = Guid.Parse(request.SeriesId);
 
             var seriesEntity = await _unitOfWork.Series.Find(i => i.IsActive && i.Id == seriesId)
-                .Include(i => i.SeriesAndSeriesArtists).ThenInclude(i => i.SeriesArtist)
-                .Include(i => i.SeriesAndSeriesCategories).ThenInclude(i => i.SeriesCategory)
-                .Include(i => i.SeriesAndSeriesAuthor).ThenInclude(i => i.SeriesAuthor)
+                .Include(i => i.SeriesAndSeriesArtists.Where(x => x.IsActive)).ThenInclude(i => i.SeriesArtist)
+                .Include(i => i.SeriesAndSeriesCategories.Where(x => x.IsActive)).ThenInclude(i => i.SeriesCategory)
+                .Include(i => i.SeriesAndSeriesAuthor.Where(x => x.IsActive)).ThenInclude(i => i.SeriesAuthor)
                 .AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync(cancellationToken);
             if (seriesEntity == default)
             {

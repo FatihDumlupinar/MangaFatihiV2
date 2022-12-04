@@ -60,6 +60,7 @@ namespace MangaFatihi.WebApi.Controllers
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
         public async ValueTask<IActionResult> EditAsync(EditSeriesCommand command, string seriesId, CancellationToken cancellation)
         {
+            command.SeriesId = seriesId;
             var result = await Mediator.Send(command, cancellation);
             return CustomStandartReturnAction(result);
         }

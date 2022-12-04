@@ -23,6 +23,7 @@
 
         public static readonly string ErrorDefaultTypeError = "DEFAULT_TYPE_ERROR";
         public static readonly string ErrorDefaultIsNull = "DEFAULT_IS_NULL";
+        public static readonly string ErrorDefaultNotFound = "DEFAULT_NOT_FOUND";
 
 
         //success
@@ -58,6 +59,7 @@
 
             { ErrorDefaultIsNull, "\'{0}\' zorunlu!" },
             { ErrorDefaultTypeError, "\'{0}\' yanlış format!" },
+            { ErrorDefaultNotFound, "Aradığınız \'{0}\' bulunamadı!" },
 
             { SuccessGetListProcess, "Veri listesi getirme işlemi başarılı." },
             { SuccessAddProcess, "Veri ekleme işlemi başarılı." },

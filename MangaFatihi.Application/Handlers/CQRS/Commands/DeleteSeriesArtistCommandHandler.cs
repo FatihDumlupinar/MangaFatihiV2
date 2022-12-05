@@ -47,7 +47,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
                 await _unitOfWork.CommitAsync(cancellationToken);
             }
 
-            return new SuccessDataResult<object>(ApplicationMessages.SuccessAddProcess.GetMessage(), ApplicationMessages.SuccessAddProcess);
+            return new SuccessDataResult<object>(ApplicationMessages.SuccessDeleteProcess.GetMessage(), ApplicationMessages.SuccessDeleteProcess);
         }
 
     }

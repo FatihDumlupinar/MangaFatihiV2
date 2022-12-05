@@ -1,5 +1,6 @@
 ﻿using MangaFatihi.Domain.Entities;
 using MangaFatihi.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace MangaFatihi.Domain.Interfaces
@@ -17,6 +18,9 @@ namespace MangaFatihi.Domain.Interfaces
         public IGenericRepository<SeriesEpisodesPage> SeriesEpisodesPage { get; }
         public IGenericRepository<Team> Team { get; }
         public IGenericRepository<RefreshToken> RefreshToken { get; }
+
+        public UserManager<AppUser> UserManager { get; }
+        public RoleManager<AppRole> RoleManager { get; }
 
         Task<int> CommitAsync(CancellationToken cancellationToken = default);
 

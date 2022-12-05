@@ -2,6 +2,7 @@
 using MangaFatihi.Domain.Entities.Identity;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Persistence.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace MangaFatihi.Application.Repositories
@@ -24,8 +25,10 @@ namespace MangaFatihi.Application.Repositories
         private readonly IGenericRepository<SeriesAndSeriesArtist> _seriesAndSeriesArtist;
         private readonly IGenericRepository<SeriesAndSeriesAuthor> _seriesAndSeriesAuthor;
         private readonly IGenericRepository<SeriesAndSeriesCategory> _seriesAndSeriesCategory;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory)
+        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _writeDbContext = writeDbContext;
             _readOnlyDbContext = readOnlyDbContext;
@@ -40,6 +43,8 @@ namespace MangaFatihi.Application.Repositories
             _seriesAndSeriesArtist = seriesAndSeriesArtist;
             _seriesAndSeriesAuthor = seriesAndSeriesAuthor;
             _seriesAndSeriesCategory = seriesAndSeriesCategory;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
 
@@ -70,6 +75,10 @@ namespace MangaFatihi.Application.Repositories
         public IGenericRepository<SeriesAndSeriesCategory> SeriesAndSeriesCategory => _seriesAndSeriesCategory;
 
         public DbContext DbContext => _readOnlyDbContext;
+
+        public UserManager<AppUser> UserManager => _userManager;
+
+        public RoleManager<AppRole> RoleManager => _roleManager;
 
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using MangaFatihi.Domain.Entities;
 using MangaFatihi.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,8 @@ namespace MangaFatihi.Domain.Interfaces
 
         public UserManager<AppUser> UserManager { get; }
         public RoleManager<AppRole> RoleManager { get; }
+
+        public IHttpContextAccessor HttpContextAccessor { get; }
 
         Task<int> CommitAsync(CancellationToken cancellationToken = default);
 

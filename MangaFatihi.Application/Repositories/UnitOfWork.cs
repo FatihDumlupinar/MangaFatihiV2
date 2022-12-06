@@ -2,8 +2,10 @@
 using MangaFatihi.Domain.Entities.Identity;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Persistence.Context;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace MangaFatihi.Application.Repositories
 {
@@ -27,8 +29,9 @@ namespace MangaFatihi.Application.Repositories
         private readonly IGenericRepository<SeriesAndSeriesCategory> _seriesAndSeriesCategory;
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
+        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IHttpContextAccessor httpContextAccessor)
         {
             _writeDbContext = writeDbContext;
             _readOnlyDbContext = readOnlyDbContext;
@@ -45,6 +48,7 @@ namespace MangaFatihi.Application.Repositories
             _seriesAndSeriesCategory = seriesAndSeriesCategory;
             _userManager = userManager;
             _roleManager = roleManager;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -80,6 +84,7 @@ namespace MangaFatihi.Application.Repositories
 
         public RoleManager<AppRole> RoleManager => _roleManager;
 
+        public IHttpContextAccessor HttpContextAccessor => _httpContextAccessor;
 
         #endregion
 

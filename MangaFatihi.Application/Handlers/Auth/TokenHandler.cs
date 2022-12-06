@@ -37,7 +37,8 @@ namespace MangaFatihi.Application.Handlers.Auth
         {
             var authClaims = new List<Claim>
                 {
-                    new Claim("fullName", appUser.FullName),
+                    new Claim(ClaimTypes.NameIdentifier,appUser.Id.ToString()),
+                    new Claim("fullName", appUser.FullName??""),
                     new Claim(ClaimTypes.Name, appUser.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
@@ -75,8 +76,8 @@ namespace MangaFatihi.Application.Handlers.Auth
 
             //Oluşturulacak token ayarlarını veriyoruz.
             var securityToken = new JwtSecurityToken(
-                    issuer: _configuration["JWTSettings:ValidIssuer"],
-                    audience: _configuration["JWTSettings:ValidAudience"],
+                    issuer: _configuration["JWTSettings:Issuer"],
+                    audience: _configuration["JWTSettings:Audience"],
                     expires: tokenInstance.Expiration,
                     notBefore: DateTime.Now,//Token üretildikten ne kadar süre sonra devreye girsin ayarlıyouz.
                     signingCredentials: signingCredentials,

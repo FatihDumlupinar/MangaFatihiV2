@@ -87,6 +87,8 @@ builder.Services.AddJwtTokenAuthentication(config);
 //    #endregion
 //});
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 var app = builder.Build();
 

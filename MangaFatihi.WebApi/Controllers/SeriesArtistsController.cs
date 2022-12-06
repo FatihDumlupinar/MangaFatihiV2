@@ -3,6 +3,7 @@ using MangaFatihi.Models.Bindings.CQRS.Commands;
 using MangaFatihi.Models.Bindings.CQRS.Queries;
 using MangaFatihi.Models.DTOs.CQRS.Queries;
 using MangaFatihi.WebApi.Controllers.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MangaFatihi.WebApi.Controllers

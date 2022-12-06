@@ -1,19 +1,30 @@
 ﻿using MangaFatihi.Domain.Common;
 using MangaFatihi.Domain.Entities;
-using MangaFatihi.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace MangaFatihi.Persistence.Context
 {
     public class BaseDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public BaseDbContext(DbContextOptions options) : base(options)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public BaseDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor) : base(options)
         {
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
+            Guid userId = default;
+            var userIdClaim = _httpContextAccessor?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!string.IsNullOrEmpty(userIdClaim))
+            {
+                _ = Guid.TryParse(userIdClaim, out userId);
+            }
+
+
             ChangeTracker.DetectChanges();
             var added = ChangeTracker.Entries()
             .Where(t => t.State == EntityState.Added)
@@ -26,6 +37,7 @@ namespace MangaFatihi.Persistence.Context
                 {
                     track.CreateDate = DateTime.Now;
                     track.IsActive = true;
+                    track.CreateUserId= userId;
                 }
             }
 
@@ -39,6 +51,7 @@ namespace MangaFatihi.Persistence.Context
                 if (entity is BaseEntity track)
                 {
                     track.UpdateDate = DateTime.Now;
+                    track.UpdateUserId = userId;
                 }
             }
 

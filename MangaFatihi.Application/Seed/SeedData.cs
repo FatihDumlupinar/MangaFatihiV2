@@ -109,6 +109,7 @@ namespace MangaFatihi.Application.Seed
                 user.Email = "admin@email.com";
                 user.FullName = "Admin Test";
                 user.Gender = 1;
+                user.IsActive= true;
 
                 var result = await userManager.CreateAsync(user, "123456");
 

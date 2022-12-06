@@ -2,7 +2,7 @@
 using MangaFatihi.Domain.Entities;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Models.Base;
-using MangaFatihi.Models.CQRS.Bindings.Commands;
+using MangaFatihi.Models.Bindings.CQRS.Commands;
 using Mediator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

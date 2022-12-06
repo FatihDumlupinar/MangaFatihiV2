@@ -8,22 +8,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MangaFatihi.Application.Handlers.CQRS.Commands
 {
-    public class CreateSeriesArtistCommandHandler : ICommandHandler<CreateSeriesArtistCommand, DataResult<object>>
+    public class CreateSeriesAuthorCommandHandler : ICommandHandler<CreateSeriesAuthorCommand, DataResult<object>>
     {
         #region Ctor&Fields
 
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSeriesArtistCommandHandler(IUnitOfWork unitOfWork)
+        public CreateSeriesAuthorCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         #endregion
 
-        public async ValueTask<DataResult<object>> Handle(CreateSeriesArtistCommand command, CancellationToken cancellationToken)
+        public async ValueTask<DataResult<object>> Handle(CreateSeriesAuthorCommand command, CancellationToken cancellationToken)
         {
-            var seriesArtistEntity = await _unitOfWork.SeriesArtist.AddAsyncReturnEntity(new()
+            var seriesAuthorEntity = await _unitOfWork.SeriesAuthor.AddAsyncReturnEntity(new()
             {
                 FullName = command.FullName,
 
@@ -39,13 +39,13 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
                     .ToListAsync(cancellationToken);
                 if (series.Any())
                 {
-                    var seriesAndSeriesArtistsList = series.Select(i => new SeriesAndSeriesArtist()
+                    var seriesAndSeriesAuthorsList = series.Select(i => new SeriesAndSeriesAuthor()
                     {
                         SeriesId = i.Id,
-                        SeriesArtistId = seriesArtistEntity.Id,
+                        SeriesAuthorId = seriesAuthorEntity.Id,
                     });
 
-                    await _unitOfWork.SeriesAndSeriesArtist.AddRangeAsync(seriesAndSeriesArtistsList, cancellationToken);
+                    await _unitOfWork.SeriesAndSeriesAuthor.AddRangeAsync(seriesAndSeriesAuthorsList, cancellationToken);
                     await _unitOfWork.CommitAsync(cancellationToken);
                 }
             }

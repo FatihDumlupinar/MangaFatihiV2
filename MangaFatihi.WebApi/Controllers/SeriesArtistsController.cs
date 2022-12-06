@@ -1,7 +1,7 @@
 ﻿using MangaFatihi.Models.Base;
-using MangaFatihi.Models.CQRS.Bindings.Commands;
-using MangaFatihi.Models.CQRS.Bindings.Queries;
-using MangaFatihi.Models.CQRS.DTOs.Queries;
+using MangaFatihi.Models.Bindings.CQRS.Commands;
+using MangaFatihi.Models.Bindings.CQRS.Queries;
+using MangaFatihi.Models.DTOs.CQRS.Queries;
 using MangaFatihi.WebApi.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +12,7 @@ namespace MangaFatihi.WebApi.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class SeriesArtistsController : CustomBaseController<SeriesController>
+    public class SeriesArtistsController : CustomBaseController<SeriesArtistsController>
     {
         /// <summary>
         /// Filtreye göre Seri sanatçılarını getiren servis

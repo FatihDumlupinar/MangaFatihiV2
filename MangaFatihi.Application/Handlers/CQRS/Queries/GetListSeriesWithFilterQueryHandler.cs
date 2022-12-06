@@ -1,12 +1,12 @@
-﻿using MangaFatihi.Application.Models.DTOs.Queries;
-using MangaFatihi.Domain.Interfaces;
+﻿using MangaFatihi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Dapper;
 using MangaFatihi.Domain.Constants;
 using MangaFatihi.Models.Base;
-using MangaFatihi.Models.CQRS.Bindings.Queries;
 using MangaFatihi.Models.Commonns;
 using Mediator;
+using MangaFatihi.Models.DTOs.CQRS.Queries;
+using MangaFatihi.Models.Bindings.CQRS.Queries;
 
 namespace MangaFatihi.Application.Handlers.CQRS.Queries
 {

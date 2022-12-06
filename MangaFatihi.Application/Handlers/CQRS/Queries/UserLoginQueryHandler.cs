@@ -1,9 +1,9 @@
 ﻿using MangaFatihi.Application.Handlers.Auth;
-using MangaFatihi.Application.Models.DTOs.Queries;
 using MangaFatihi.Domain.Constants;
 using MangaFatihi.Domain.Entities;
 using MangaFatihi.Models.Base;
-using MangaFatihi.Models.CQRS.Bindings.Queries;
+using MangaFatihi.Models.Bindings.CQRS.Queries;
+using MangaFatihi.Models.DTOs.CQRS.Queries;
 using Mediator;
 using Microsoft.AspNetCore.Identity;
 

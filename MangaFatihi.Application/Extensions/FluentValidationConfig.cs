@@ -1,5 +1,5 @@
 ﻿using FluentValidation.AspNetCore;
-using MangaFatihi.Models.CQRS.Bindings.Queries;
+using MangaFatihi.Models.Bindings.CQRS.Queries;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MangaFatihi.Application.Extensions

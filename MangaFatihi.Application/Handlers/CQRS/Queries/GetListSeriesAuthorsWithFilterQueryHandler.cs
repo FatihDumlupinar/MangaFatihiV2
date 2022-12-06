@@ -9,22 +9,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MangaFatihi.Application.Handlers.CQRS.Queries
 {
-    public class GetListSeriesArtistsWithFilterQueryHandler : IQueryHandler<GetListSeriesArtistsWithFilterQuery, DataResult<GetListSeriesArtistsWithFilterQueryDto>>
+    public class GetListSeriesAuthorsWithFilterQueryHandler : IQueryHandler<GetListSeriesAuthorsWithFilterQuery, DataResult<GetListSeriesAuthorsWithFilterQueryDto>>
     {
         #region Ctor&Fields
 
         private readonly IUnitOfWork _unitOfWork;
 
-        public GetListSeriesArtistsWithFilterQueryHandler(IUnitOfWork unitOfWork)
+        public GetListSeriesAuthorsWithFilterQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         #endregion
 
-        public async ValueTask<DataResult<GetListSeriesArtistsWithFilterQueryDto>> Handle(GetListSeriesArtistsWithFilterQuery query, CancellationToken cancellationToken)
+        public async ValueTask<DataResult<GetListSeriesAuthorsWithFilterQueryDto>> Handle(GetListSeriesAuthorsWithFilterQuery query, CancellationToken cancellationToken)
         {
-            var iQuerayble = _unitOfWork.SeriesArtist.Find(i => i.IsActive);
+            var iQuerayble = _unitOfWork.SeriesAuthor.Find(i => i.IsActive);
 
             #region Filters
 
@@ -82,17 +82,17 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
             #endregion
 
-            var seriesArtists = await iQuerayble.AsNoTrackingWithIdentityResolution().ToListAsync(cancellationToken);
+            var seriesAuthors = await iQuerayble.AsNoTrackingWithIdentityResolution().ToListAsync(cancellationToken);
 
             #region Listenin diğer elemanları
 
             var onlyUserIds = new List<Guid>();
-            foreach (var seriesArtist in seriesArtists)
+            foreach (var seriesAuthor in seriesAuthors)
             {
-                onlyUserIds.Add(seriesArtist.CreateUserId);
-                if (seriesArtist.UpdateUserId.HasValue)
+                onlyUserIds.Add(seriesAuthor.CreateUserId);
+                if (seriesAuthor.UpdateUserId.HasValue)
                 {
-                    onlyUserIds.Add(seriesArtist.UpdateUserId.Value);
+                    onlyUserIds.Add(seriesAuthor.UpdateUserId.Value);
                 }
             }
 
@@ -103,9 +103,9 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
             #endregion
 
-            var returnModel = new GetListSeriesArtistsWithFilterQueryDto()
+            var returnModel = new GetListSeriesAuthorsWithFilterQueryDto()
             {
-                List = seriesArtists.Select(i => new SeriesArtistListModel()
+                List = seriesAuthors.Select(i => new SeriesAuthorListModel()
                 {
                     FullName = i.FullName,
                     Id = i.Id,
@@ -120,7 +120,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
             };
 
-            return new SuccessDataResult<GetListSeriesArtistsWithFilterQueryDto>(returnModel, ApplicationMessages.SuccessGetListProcess.GetMessage(), ApplicationMessages.SuccessGetListProcess);
+            return new SuccessDataResult<GetListSeriesAuthorsWithFilterQueryDto>(returnModel, ApplicationMessages.SuccessGetListProcess.GetMessage(), ApplicationMessages.SuccessGetListProcess);
         }
 
     }

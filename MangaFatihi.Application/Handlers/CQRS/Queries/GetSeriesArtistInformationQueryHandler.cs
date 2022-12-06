@@ -1,9 +1,9 @@
 ﻿using MangaFatihi.Domain.Constants;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Models.Base;
+using MangaFatihi.Models.Bindings.CQRS.Queries;
 using MangaFatihi.Models.Commonns;
-using MangaFatihi.Models.CQRS.Bindings.Queries;
-using MangaFatihi.Models.CQRS.DTOs.Queries;
+using MangaFatihi.Models.DTOs.CQRS.Queries;
 using Mediator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -45,7 +45,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
             {
                 Id = seriesArtistId,
                 FullName = seriesArtist.FullName,
-                SeriesList = seriesArtist.SeriesAndSeriesArtists.Select(i => new SeriesArtistInformationSeriesListModel()
+                SeriesList = seriesArtist.SeriesAndSeriesArtists.Select(i => new SmallSeriesListModel()
                 {
                     SeriesId = i.Series.Id,
                     SeriesTitle = i.Series.Title

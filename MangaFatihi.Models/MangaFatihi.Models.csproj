@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\DTOs\Commands\" />
+    <Folder Include="DTOs\CQRS\Commands\" />
   </ItemGroup>
 
 </Project>

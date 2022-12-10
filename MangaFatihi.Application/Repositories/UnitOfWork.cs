@@ -30,8 +30,9 @@ namespace MangaFatihi.Application.Repositories
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IGenericRepository<TeamAndAppUser> _teamAndAppUser;
 
-        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IHttpContextAccessor httpContextAccessor)
+        public UnitOfWork(WriteDbContext writeDbContext, ReadOnlyDbContext readOnlyDbContext, IGenericRepository<Series> series, IGenericRepository<SeriesArtist> seriesArtist, IGenericRepository<SeriesAuthor> seriesAuthor, IGenericRepository<SeriesCategory> seriesCategory, IGenericRepository<SeriesEpisode> seriesEpisode, IGenericRepository<SeriesEpisodesPage> seriesEpisodesPage, IGenericRepository<Team> team, IGenericRepository<RefreshToken> refreshToken, IGenericRepository<SeriesAndSeriesArtist> seriesAndSeriesArtist, IGenericRepository<SeriesAndSeriesAuthor> seriesAndSeriesAuthor, IGenericRepository<SeriesAndSeriesCategory> seriesAndSeriesCategory, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IHttpContextAccessor httpContextAccessor, IGenericRepository<TeamAndAppUser> teamAndAppUser)
         {
             _writeDbContext = writeDbContext;
             _readOnlyDbContext = readOnlyDbContext;
@@ -49,6 +50,7 @@ namespace MangaFatihi.Application.Repositories
             _userManager = userManager;
             _roleManager = roleManager;
             _httpContextAccessor = httpContextAccessor;
+            _teamAndAppUser = teamAndAppUser;
         }
 
 
@@ -85,6 +87,8 @@ namespace MangaFatihi.Application.Repositories
         public RoleManager<AppRole> RoleManager => _roleManager;
 
         public IHttpContextAccessor HttpContextAccessor => _httpContextAccessor;
+
+        public IGenericRepository<TeamAndAppUser> TeamAndAppUser => _teamAndAppUser;
 
         #endregion
 

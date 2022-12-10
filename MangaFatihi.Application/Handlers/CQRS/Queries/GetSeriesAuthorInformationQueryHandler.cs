@@ -38,7 +38,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
             {
                 _logger.LogError(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Sanatçısı"), ApplicationMessages.ErrorDefaultNotFound, seriesArtist);
 
-                return new NotFoundDataResult<GetSeriesAuthorInformationQueryDto>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Yazarı"), ApplicationMessages.ErrorSeriesNotFound);
+                return new NotFoundDataResult<GetSeriesAuthorInformationQueryDto>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Yazarı"), ApplicationMessages.ErrorDefaultNotFound);
             }
 
             var returnModel = new GetSeriesAuthorInformationQueryDto()

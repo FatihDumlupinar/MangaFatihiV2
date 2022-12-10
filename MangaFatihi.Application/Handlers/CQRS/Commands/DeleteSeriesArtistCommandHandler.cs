@@ -32,7 +32,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
             {
                 _logger.LogError(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Sanatçısı"), ApplicationMessages.ErrorDefaultNotFound, seriesArtistEntity);
 
-                return new NotFoundDataResult<object>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Sanatçısı"), ApplicationMessages.ErrorSeriesNotFound);
+                return new NotFoundDataResult<object>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Sanatçısı"), ApplicationMessages.ErrorDefaultNotFound);
             }
 
             await _unitOfWork.SeriesArtist.DeleteAsync(seriesArtistEntity, cancellationToken);

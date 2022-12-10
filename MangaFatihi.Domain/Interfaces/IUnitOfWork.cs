@@ -18,6 +18,7 @@ namespace MangaFatihi.Domain.Interfaces
         public IGenericRepository<SeriesEpisode> SeriesEpisode { get; }
         public IGenericRepository<SeriesEpisodesPage> SeriesEpisodesPage { get; }
         public IGenericRepository<Team> Team { get; }
+        public IGenericRepository<TeamAndAppUser> TeamAndAppUser { get; }
         public IGenericRepository<RefreshToken> RefreshToken { get; }
 
         public UserManager<AppUser> UserManager { get; }

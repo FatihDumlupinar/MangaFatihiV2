@@ -13,7 +13,7 @@ namespace MangaFatihi.Domain.Entities
         public string? ProfileImageUrl { get; set; }
         public string? Description { get; set; }
 
-        public virtual IList<AppUser> AppUser { get; set; }
+        public virtual IList<TeamAndAppUser> AppUser { get; set; }
 
     }
 }

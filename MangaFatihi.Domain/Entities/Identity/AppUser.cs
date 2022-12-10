@@ -15,8 +15,7 @@ namespace MangaFatihi.Domain.Entities
         /// </summary>
         public int? Gender { get; set; }
 
-        public virtual Team? Team { get; set; }
-        public Guid? TeamId { get; set; }
+        public virtual IList<TeamAndAppUser> Teams { get; set; }
 
         public virtual IList<RefreshToken> RefreshTokens { get; set; }
 

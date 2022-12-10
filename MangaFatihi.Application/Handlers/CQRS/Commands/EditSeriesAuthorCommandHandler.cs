@@ -33,7 +33,7 @@ namespace MangaFatihi.Application.Handlers.CQRS.Commands
             {
                 _logger.LogError(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Yazarı"), ApplicationMessages.ErrorDefaultNotFound, seriesAuthorEntity);
 
-                return new NotFoundDataResult<object>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Yazarı"), ApplicationMessages.ErrorSeriesNotFound);
+                return new NotFoundDataResult<object>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Yazarı"), ApplicationMessages.ErrorDefaultNotFound);
             }
 
             seriesAuthorEntity.FullName = command.FullName;

@@ -71,6 +71,7 @@ namespace MangaFatihi.Persistence.Context
         public DbSet<StaticSeriesStatus> StaticSeriesStatus { get; set; }
         public DbSet<StaticSeriesType> StaticSeriesTypes { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamAndAppUser> TeamsAndAppUsers { get; set; }
 
 
 

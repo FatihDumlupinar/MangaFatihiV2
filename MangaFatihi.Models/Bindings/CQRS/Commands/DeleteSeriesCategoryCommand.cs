@@ -15,7 +15,7 @@ public class DeleteSeriesCategoryCommandValidator : AbstractValidator<DeleteSeri
     public DeleteSeriesCategoryCommandValidator()
     {
         RuleFor(x => x.SeriesCategoryId)
-            .Must(x => Guid.TryParse(x, out _)).WithMessage(string.Format(ApplicationMessages.ErrorDefaultTypeError.GetMessage(), "SeriesArtistId"))
+            .Must(x => Guid.TryParse(x, out _)).WithMessage(string.Format(ApplicationMessages.ErrorDefaultTypeError.GetMessage(), "SeriesCategoryId"))
             .NotNull().WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesCategoryId"))
             .NotEmpty().WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesCategoryId"));
 

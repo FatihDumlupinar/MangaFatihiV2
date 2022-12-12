@@ -21,6 +21,9 @@ namespace MangaFatihi.Domain.Entities
         /// </summary>
         public bool IsOnAir { get; set; } = true;
 
+        public virtual Team Team { get; set; }
+        public Guid? TeamId { get; set; }
+
         public virtual AppUser? EditorUser { get; set; }
         public Guid? EditorUserId { get; set; }
 
@@ -30,8 +33,8 @@ namespace MangaFatihi.Domain.Entities
         public virtual Series Series { get; set; }
         public Guid SeriesId { get; set; }
 
-        public virtual StaticSeriesEpisodeType StaticSeriesEpisodeTypes { get; set; }
-        public int StaticSeriesEpisodeTypesId { get; set; }
+        public virtual StaticSeriesEpisodeType StaticSeriesEpisodeType { get; set; }
+        public int StaticSeriesEpisodeTypeId { get; set; }
 
         public virtual IList<SeriesEpisodesPage> SeriesEpisodesPages { get; set; }
     }

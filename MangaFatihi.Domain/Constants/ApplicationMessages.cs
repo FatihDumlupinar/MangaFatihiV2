@@ -20,6 +20,7 @@
         public static readonly string ErrorUserLoginQueryEmailIsNull = "USER_LOGIN_EMAIL_IS_NULL";
         public static readonly string ErrorUserLoginQueryPasswordIsNull = "USER_LOGIN_PASSWORD_IS_NULL";
         public static readonly string ErrorSeriesNotFound = "SERIES_NOT_FOUND";
+        public static readonly string ErrorSeriesEpisodeAlreadyAdded = "SERIES_EPISODE_ALREADY_ADDED";
 
         public static readonly string ErrorDefaultTypeError = "DEFAULT_TYPE_ERROR";
         public static readonly string ErrorDefaultIsNull = "DEFAULT_IS_NULL";
@@ -56,6 +57,7 @@
             { ErrorUserLoginQueryEmailIsNull, "E-Posta zorunlu!" },
             { ErrorUserLoginQueryPasswordIsNull, "Şifre zorunlu!" },
             { ErrorSeriesNotFound, "Veritabanında böyle bir seri bulunamadı!" },
+            { ErrorSeriesEpisodeAlreadyAdded, "Bu bölüm daha öncesinden eklenmiştir!" },
 
             { ErrorDefaultIsNull, "\'{0}\' zorunlu!" },
             { ErrorDefaultTypeError, "\'{0}\' yanlış format!" },
@@ -68,6 +70,7 @@
             { SuccessGetDetailsProcess, "Veri detayı getirme işlemi başarılı." },
 
         };
+
 
         #endregion
 

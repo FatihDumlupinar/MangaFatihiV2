@@ -99,30 +99,27 @@ public class CreateSeriesCommandValidator : AbstractValidator<CreateSeriesComman
             .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull);
 
         RuleFor(x => x.SeriesStatusId)
-            .NotNull()
-            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesStatusId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull)
-            .NotEmpty()
-            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesStatusId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull);
-
-        RuleFor(x => x.SeriesTypesId)
-            .NotNull()
-            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesTypesId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull)
-            .NotEmpty()
-            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesTypesId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull);
-
-        RuleFor(x => x.SeriesStatusId)
             .IsInEnum()
             .WithMessage(string.Format(ApplicationMessages.ErrorDefaultTypeError.GetMessage(), "SeriesStatusId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultTypeError);
+            .WithErrorCode(ApplicationMessages.ErrorDefaultTypeError)
+            .NotNull()
+            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesStatusId"))
+            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull)
+            .NotEmpty()
+            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesStatusId"))
+            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull);
 
         RuleFor(x => x.SeriesTypesId)
             .IsInEnum()
             .WithMessage(string.Format(ApplicationMessages.ErrorDefaultTypeError.GetMessage(), "SeriesTypesId"))
-            .WithErrorCode(ApplicationMessages.ErrorDefaultTypeError);
+            .WithErrorCode(ApplicationMessages.ErrorDefaultTypeError)
+            .NotNull()
+            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesTypesId"))
+            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull)
+            .NotEmpty()
+            .WithMessage(string.Format(ApplicationMessages.ErrorDefaultIsNull.GetMessage(), "SeriesTypesId"))
+            .WithErrorCode(ApplicationMessages.ErrorDefaultIsNull);
+
 
     }
 

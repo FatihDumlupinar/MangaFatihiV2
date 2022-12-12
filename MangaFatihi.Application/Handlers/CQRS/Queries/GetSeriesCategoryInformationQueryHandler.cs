@@ -27,25 +27,25 @@ namespace MangaFatihi.Application.Handlers.CQRS.Queries
 
         public async ValueTask<DataResult<GetSeriesCategoryInformationQueryDto>> Handle(GetSeriesCategoryInformationQuery query, CancellationToken cancellationToken)
         {
-            var seriesArtistId = Guid.Parse(query.SeriesCategoryId);
+            var seriesCategoryId = Guid.Parse(query.SeriesCategoryId);
 
-            var seriesArtist = await _unitOfWork.SeriesCategory
-                .Find(i => i.IsActive && i.Id == seriesArtistId)
+            var seriesCategory = await _unitOfWork.SeriesCategory
+                .Find(i => i.IsActive && i.Id == seriesCategoryId)
                 .Include(i => i.SeriesAndSeriesCategories.Where(x => x.IsActive && x.Series.IsActive)).ThenInclude(i => i.Series)
                 .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(cancellationToken);
-            if (seriesArtist == default)
+            if (seriesCategory == default)
             {
-                _logger.LogError(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Kategorisi"), ApplicationMessages.ErrorDefaultNotFound, seriesArtist);
+                _logger.LogError(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Kategorisi"), ApplicationMessages.ErrorDefaultNotFound, seriesCategory);
 
                 return new NotFoundDataResult<GetSeriesCategoryInformationQueryDto>(string.Format(ApplicationMessages.ErrorDefaultNotFound.GetMessage(), "Seri Kategorisi"), ApplicationMessages.ErrorDefaultNotFound);
             }
 
             var returnModel = new GetSeriesCategoryInformationQueryDto()
             {
-                Id = seriesArtistId,
-                Name = seriesArtist.Name,
-                SeriesList = seriesArtist.SeriesAndSeriesCategories.Select(i => new SmallSeriesListModel()
+                Id = seriesCategoryId,
+                Name = seriesCategory.Name,
+                SeriesList = seriesCategory.SeriesAndSeriesCategories.Select(i => new SmallSeriesListModel()
                 {
                     SeriesId = i.Series.Id,
                     SeriesTitle = i.Series.Title

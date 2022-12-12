@@ -5,7 +5,7 @@
         /// <summary>
         /// bölümünün unique Id'si
         /// </summary>
-        public Guid SeriesEpisodeId { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Bölüm numarası
@@ -30,22 +30,31 @@
         /// <summary>
         /// bölümü ilk oluşturan
         /// </summary>
-        public string CreateUser { get; set; } = "";
+        public string? CreateUser { get; set; } = "";
 
         /// <summary>
         /// bölümü son güncelleyen
         /// </summary>
-        public string UpdateUser { get; set; } = "";
+        public string? UpdateUser { get; set; } = "";
 
         /// <summary>
         /// bölümü editleyen
         /// </summary>
-        public string EditorUser { get; set; } = "";
+        public string? EditorUser { get; set; } = "";
 
         /// <summary>
         /// bölümü çeviren
         /// </summary>
-        public string TranslatorUser { get; set; } = "";
+        public string? TranslatorUser { get; set; } = "";
 
+        /// <summary>
+        /// Bölümün oluşturulma tarihi
+        /// </summary>
+        public DateTime CreateDate { get; set; }
+
+        /// <summary>
+        /// Bölümün son güncelleme tarihi
+        /// </summary>
+        public DateTime? UpdateDate { get; set; }
     }
 }

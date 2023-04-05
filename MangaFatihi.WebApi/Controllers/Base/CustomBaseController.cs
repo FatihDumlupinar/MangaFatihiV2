@@ -10,7 +10,6 @@ namespace MangaFatihi.WebApi.Controllers.Base
     /// <typeparam name="T">Statik olmayan, new'lenebilen sınıf olmak zorunda</typeparam>
     [ApiController]
     public class CustomBaseController<T> : ControllerBase 
-        where T : class, new()
     {
         // Note : Eğer Contructor kullansaydım, bu base sınıfında türeyen diğer controllerda da Contructor yazmak zorundaydım. Ee ben bunu yazacaksam ne anladık base sınıfa.
 

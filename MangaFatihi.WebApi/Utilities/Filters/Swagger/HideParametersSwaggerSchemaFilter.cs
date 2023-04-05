@@ -3,7 +3,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace MangaFatihi.WebApi.Filters
+namespace MangaFatihi.WebApi.Utilities.Filters
 {
     public class HideParametersSwaggerSchemaFilter : ISchemaFilter
     {

@@ -1,10 +1,9 @@
-﻿using MangaFatihi.WebApi.Filters;
+﻿using MangaFatihi.WebApi.Utilities.Filters;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Xml.Linq;
-using System.Xml.XPath;
 
-namespace MangaFatihi.WebApi.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions
 {
     public static class SwaggerConfig
     {
@@ -77,6 +76,6 @@ namespace MangaFatihi.WebApi.Extensions
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
             });
         }
-       
+
     }
 }

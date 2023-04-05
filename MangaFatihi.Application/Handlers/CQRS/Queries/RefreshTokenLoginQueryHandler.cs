@@ -4,7 +4,7 @@ using MangaFatihi.Domain.Entities;
 using MangaFatihi.Domain.Interfaces;
 using MangaFatihi.Models.Base;
 using MangaFatihi.Models.Bindings.CQRS.Queries;
-using MangaFatihi.Models.DTOs.CQRS.Queries;
+using MangaFatihi.Models.DTOs.CQRS.Commands;
 using Mediator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

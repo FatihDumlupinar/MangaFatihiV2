@@ -2,8 +2,9 @@
 using MangaFatihi.Models.Base;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
+using System.Net;
 
-namespace MangaFatihi.WebApi.Handlers
+namespace MangaFatihi.WebApi.Utilities.Handlers
 {
     public static class ExceptionHandler
     {
@@ -33,7 +34,7 @@ namespace MangaFatihi.WebApi.Handlers
 
                     await context.Response.WriteAsync(
                         JsonConvert.SerializeObject(
-                            new DataResult<object>(null, 500, ApplicationMessages.ErrorDefaultExceptionHandler.GetMessage(), ApplicationMessages.ErrorDefaultExceptionHandler)
+                            new DataResult<object>(null, (int)HttpStatusCode.InternalServerError, ApplicationMessages.ErrorDefaultExceptionHandler.GetMessage(), ApplicationMessages.ErrorDefaultExceptionHandler)
                             ));
                 });
             });

@@ -8,33 +8,34 @@
         #region Message Codes
 
         //errors
-        public static readonly string ErrorJWTAuthenticationFailed = "AUTHENTICATION_FAILED";
-        public static readonly string ErrorJWTNotAuthorized = "NOT_AUTHORIZED";
-        public static readonly string ErrorJWTTokenExpired = "TOKEN_EXPIRED";
-        public static readonly string ErrorJWTForbidden = "FORBIDDEN";
-        public static readonly string ErrorDefaultExceptionHandler = "DEFAULT_EXCEPTION";
-        public static readonly string ErrorLoginUserNotFound = "USER_NOT_FOUND";
-        public static readonly string ErrorLoginRefreshTokenNotFound = "REFRESH_TOKEN_NOT_FOUND";
-        public static readonly string ErrorLoginRefreshTokenInvalidToken = "INVALID_TOKEN";
-        public static readonly string ErrorModelStateValidation = "ERROR_MODEL_VALIDATION";
-        public static readonly string ErrorUserLoginQueryEmailIsNull = "USER_LOGIN_EMAIL_IS_NULL";
-        public static readonly string ErrorUserLoginQueryPasswordIsNull = "USER_LOGIN_PASSWORD_IS_NULL";
-        public static readonly string ErrorSeriesNotFound = "SERIES_NOT_FOUND";
-        public static readonly string ErrorSeriesEpisodeAlreadyAdded = "SERIES_EPISODE_ALREADY_ADDED";
+        public const string ErrorJWTAuthenticationFailed = "AUTHENTICATION_FAILED";
+        public const string ErrorJWTNotAuthorized = "NOT_AUTHORIZED";
+        public const string ErrorJWTTokenExpired = "TOKEN_EXPIRED";
+        public const string ErrorJWTForbidden = "FORBIDDEN";
+        public const string ErrorDefaultExceptionHandler = "DEFAULT_EXCEPTION";
+        public const string ErrorLoginUserNotFound = "USER_NOT_FOUND";
+        public const string ErrorLoginRefreshTokenNotFound = "REFRESH_TOKEN_NOT_FOUND";
+        public const string ErrorLoginRefreshTokenInvalidToken = "INVALID_TOKEN";
+        public const string ErrorModelStateValidation = "ERROR_MODEL_VALIDATION";
+        public const string ErrorUserLoginQueryEmailIsNull = "USER_LOGIN_EMAIL_IS_NULL";
+        public const string ErrorUserLoginQueryPasswordIsNull = "USER_LOGIN_PASSWORD_IS_NULL";
+        public const string ErrorSeriesNotFound = "SERIES_NOT_FOUND";
+        public const string ErrorSeriesEpisodeAlreadyAdded = "SERIES_EPISODE_ALREADY_ADDED";
+        public const string ErrorLargeFile = "LARGE_FILE";
+        public const string ErrorNotAllowedFileExtension = "NOT_ALLOWED_FILE_EXTENSION";
 
-        public static readonly string ErrorDefaultTypeError = "DEFAULT_TYPE_ERROR";
-        public static readonly string ErrorDefaultIsNull = "DEFAULT_IS_NULL";
-        public static readonly string ErrorDefaultNotFound = "DEFAULT_NOT_FOUND";
-
+        public const string ErrorDefaultTypeError = "DEFAULT_TYPE_ERROR";
+        public const string ErrorDefaultIsNull = "DEFAULT_IS_NULL";
+        public const string ErrorDefaultNotFound = "DEFAULT_NOT_FOUND";
 
         //success
-        public static readonly string SuccessLogin = "USER_LOGIN_SUCCESS";
-        public static readonly string SuccessRefreshTokenLogin = "REFRESH_TOKEN_LOGIN_SUCCESS";
-        public static readonly string SuccessGetListProcess = "SUCCESS_GET_LIST_PROCESS";
-        public static readonly string SuccessGetDetailsProcess = "SUCCESS_GET_DETAILS_PROCESS";
-        public static readonly string SuccessAddProcess = "SUCCESS_ADD_PROCESS";
-        public static readonly string SuccessUpdateProcess = "SUCCESS_UPDATE_PROCESS";
-        public static readonly string SuccessDeleteProcess = "SUCCESS_DELETE_PROCESS";
+        public const string SuccessLogin = "USER_LOGIN_SUCCESS";
+        public const string SuccessRefreshTokenLogin = "REFRESH_TOKEN_LOGIN_SUCCESS";
+        public const string SuccessGetListProcess = "SUCCESS_GET_LIST_PROCESS";
+        public const string SuccessGetDetailsProcess = "SUCCESS_GET_DETAILS_PROCESS";
+        public const string SuccessAddProcess = "SUCCESS_ADD_PROCESS";
+        public const string SuccessUpdateProcess = "SUCCESS_UPDATE_PROCESS";
+        public const string SuccessDeleteProcess = "SUCCESS_DELETE_PROCESS";
 
 
 
@@ -58,6 +59,11 @@
             { ErrorUserLoginQueryPasswordIsNull, "Şifre zorunlu!" },
             { ErrorSeriesNotFound, "Veritabanında böyle bir seri bulunamadı!" },
             { ErrorSeriesEpisodeAlreadyAdded, "Bu bölüm daha öncesinden eklenmiştir!" },
+            {
+                ErrorLargeFile,
+                "Belirlenen maksimum dosya boyutundan ( \'{0}\' byte ) daha büyük dosya!"
+            },
+            { ErrorNotAllowedFileExtension, "İzin verilmeyen dosya türü. İzin verilen dosya türüler : \'{0}\'" },
 
             { ErrorDefaultIsNull, "\'{0}\' zorunlu!" },
             { ErrorDefaultTypeError, "\'{0}\' yanlış format!" },
@@ -72,13 +78,14 @@
         };
 
 
+
         #endregion
 
         public static string GetMessage(this string messageCode)
         {
             string result;
             _ = Messages.TryGetValue(messageCode, out result);
-            return result??"";
+            return result ?? "";
         }
 
     }

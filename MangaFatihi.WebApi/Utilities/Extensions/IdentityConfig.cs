@@ -2,7 +2,7 @@
 using MangaFatihi.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 
-namespace MangaFatihi.WebApi.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions
 {
     public static class IdentityConfig
     {

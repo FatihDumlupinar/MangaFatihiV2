@@ -1,12 +1,8 @@
-﻿using MangaFatihi.Domain.Constants;
-using MangaFatihi.Models.Base;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System.Text;
 
-namespace MangaFatihi.WebApi.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions
 {
     public static class JwtTokenConfig
     {

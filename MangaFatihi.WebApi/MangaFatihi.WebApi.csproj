@@ -9,8 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
-    <PackageReference Include="Mediator.Abstractions" Version="2.1.0-preview.2" />
-    <PackageReference Include="Mediator.SourceGenerator" Version="2.1.0-preview.2">
+    <PackageReference Include="Mediator.Abstractions" Version="2.1.0-preview.5" />
+    <PackageReference Include="Mediator.SourceGenerator" Version="2.1.0-preview.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -31,6 +31,11 @@
   <ItemGroup>
     <ProjectReference Include="..\MangaFatihi.Application\MangaFatihi.Application.csproj" />
     <ProjectReference Include="..\MangaFatihi.Persistence\MangaFatihi.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utilities\Attributes\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

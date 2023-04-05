@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MangaFatihi.Models.DTOs.CQRS.Queries;
+using MangaFatihi.Models.DTOs.CQRS.Commands;
 using MangaFatihi.Domain.Enms;
 using MangaFatihi.Models.Base;
 using MangaFatihi.Models.Bindings.CQRS.Base;

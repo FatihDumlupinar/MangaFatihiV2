@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace MangaFatihi.WebApi.Filters
+namespace MangaFatihi.WebApi.Utilities.Filters
 {
     public class GlobalValidationFilter : IAsyncActionFilter
     {

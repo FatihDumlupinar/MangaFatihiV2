@@ -5,12 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MangaFatihi.Application.Extensions
 {
-    public static class DependencyConfig
+    public static class ApplicationDependencyConfig
     {
         /// <summary>
-        /// Uygulama içinde kullanılan dependency ler
+        /// Application katmanında kullanılan dependency ler
         /// </summary>
-        public static IServiceCollection AddDependecyConfig(this IServiceCollection services)
+        public static IServiceCollection AddApplicationDependecyConfig(this IServiceCollection services)
         {
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();

@@ -1,6 +1,6 @@
 ﻿using MangaFatihi.Models.DTOs.CQRS.Base;
 
-namespace MangaFatihi.Models.DTOs.CQRS.Queries;
+namespace MangaFatihi.Models.DTOs.CQRS.Commands;
 
 public class RefreshTokenLoginQueryDto : BaseLoginDto
 {

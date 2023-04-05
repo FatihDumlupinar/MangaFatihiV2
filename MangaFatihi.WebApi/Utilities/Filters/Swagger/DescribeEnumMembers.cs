@@ -1,11 +1,10 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Collections;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace MangaFatihi.WebApi.Filters
+namespace MangaFatihi.WebApi.Utilities.Filters
 {
     /// <summary>
     /// Swagger schema filter to modify description of enum types so they

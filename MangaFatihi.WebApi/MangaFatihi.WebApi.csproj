@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Utilities\Attributes\" />
+    <Folder Include="Utilities\Services\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

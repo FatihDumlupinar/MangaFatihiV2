@@ -1,4 +1,6 @@
-﻿using MangaFatihi.WebApi.Utilities.Services;
+﻿using MangaFatihi.Infrastructure.Providers;
+using MangaFatihi.WebApi.Utilities.Providers;
+using MangaFatihi.WebApi.Utilities.Services;
 
 namespace MangaFatihi.WebApi.Utilities.Extensions
 {
@@ -9,10 +11,11 @@ namespace MangaFatihi.WebApi.Utilities.Extensions
         /// </summary>
         public static IServiceCollection AddWebApiDependecyConfig(this IServiceCollection services)
         {
-            services.AddScoped<IFileService, FileService>();
-
             services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+            services.AddSingleton<IStaticFileDirectoryProvider, StaticFileDirectoryProvider>();
 
             return services;
         }

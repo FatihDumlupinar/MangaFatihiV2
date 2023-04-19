@@ -3,7 +3,6 @@ using MangaFatihi.Models.Bindings.CQRS.Commands;
 using MangaFatihi.Models.Commonns;
 using MangaFatihi.Models.DTOs.CQRS.Commands;
 using MangaFatihi.WebApi.Controllers.Base;
-using MangaFatihi.WebApi.Utilities.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MangaFatihi.WebApi.Controllers
@@ -15,28 +14,15 @@ namespace MangaFatihi.WebApi.Controllers
     [ApiController]
     public class SeriesEpisodesPagesController : CustomBaseController<SeriesEpisodesPagesController>
     {
-        #region Ctor&Fields
-
-        private readonly IFileService _fileService;
-
-        public SeriesEpisodesPagesController(IFileService fileService)
-        {
-            _fileService = fileService;
-        }
-
-        #endregion
-
         /// <summary>
         /// Toplu resim ekleyen ve geriye dönen servis
         /// </summary>
-        [HttpPost("MultiUploadImages")]
-        [ProducesResponseType(typeof(SuccessDataResult<MultiUploadImagesCommandDto>), StatusCodes.Status200OK)]
+        [HttpPost("{seriesEpisodeId}/MultiUploadImages")]
+        [ProducesResponseType(typeof(SuccessDataResult<MultiUploadSeriesEpisodeImagesCommandDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async ValueTask<IActionResult> MultiUploadImagesAsync([FromForm] SeriesEpisodesMultiUploadImagesModel binding, CancellationToken cancellation)
+        public async ValueTask<IActionResult> MultiUploadImagesAsync([FromRoute] Guid seriesEpisodeId, [FromForm] SeriesEpisodesMultiUploadImagesModel binding, CancellationToken cancellation)
         {
-            var files_Result = await _fileService.UploadMultiSeriesImagesAsync(binding.Files, cancellation);
-
-            var result = await Mediator.Send(new MultiUploadImagesCommand() { Files = files_Result }, cancellation);
+            var result = await Mediator.Send(new MultiUploadSeriesEpisodeImagesCommand() { Files = binding.Files, SeriesEpisodeId = seriesEpisodeId }, cancellation);
             return CustomStandartReturnAction(result);
         }
 
@@ -44,38 +30,12 @@ namespace MangaFatihi.WebApi.Controllers
         /// Tekli resim ekleyen ve geriye dönen servis
         /// </summary>
         /// <returns></returns>
-        [HttpPost("UploadImage")]
-        [ProducesResponseType(typeof(SuccessDataResult<UploadImageCommandDto>), StatusCodes.Status200OK)]
+        [HttpPost("{seriesEpisodeId}/UploadImage")]
+        [ProducesResponseType(typeof(SuccessDataResult<UploadSeriesEpisodeImageCommandDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async ValueTask<IActionResult> UploadImageAsync([FromForm] UploadImageModel binding, CancellationToken cancellation)
+        public async ValueTask<IActionResult> UploadImageAsync([FromRoute] Guid seriesEpisodeId, [FromForm] UploadImageModel binding, CancellationToken cancellation)
         {
-            var files_Result = await _fileService.UploadSeriesImageAsync(binding.File, cancellation);
-
-            var result = await Mediator.Send(new UploadImageCommand() { File = files_Result }, cancellation);
-            return CustomStandartReturnAction(result);
-        }
-
-        /// <summary>
-        /// Toplu seri(resimli) sayfaları ekleyen servis
-        /// </summary>
-        [HttpPost("CreateMultiSeriesPage")]
-        [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async ValueTask<IActionResult> CreateMultiSeriesPageAsync(CreateMultiSeriesPageCommand command, CancellationToken cancellation)
-        {
-            var result = await Mediator.Send(command, cancellation);
-            return CustomStandartReturnAction(result);
-        }
-
-        /// <summary>
-        /// Toplu Resim Silen Servis
-        /// </summary>
-        [HttpPost("DeleteMultiImage")]
-        [ProducesResponseType(typeof(SuccessDataResult<object>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ErrorDataResult<>), StatusCodes.Status400BadRequest)]
-        public async ValueTask<IActionResult> DeleteMultiImageAsync(DeleteMultiImageCommand command, CancellationToken cancellation)
-        {
-            var result = await Mediator.Send(command, cancellation);
+            var result = await Mediator.Send(new UploadSeriesEpisodeImageCommand() { File = binding.File, SeriesEpisodeId = seriesEpisodeId }, cancellation);
             return CustomStandartReturnAction(result);
         }
 

@@ -1,9 +1,9 @@
-﻿namespace MangaFatihi.Models.DTOs.CQRS.Commands;
+﻿using MangaFatihi.Models.Commonns;
 
-public class MultiUploadImagesCommandDto
+namespace MangaFatihi.Models.DTOs.CQRS.Commands;
+
+public class MultiUploadSeriesEpisodeImagesCommandDto
 {
-    public Guid ImageId { get; set; }
-    public string ImageName { get; set; } = "";
-    public string ImageUrl { get; set; } = "";
+    public List<UploadSeriesEpisodeModel> List { get; set; }
 
 }

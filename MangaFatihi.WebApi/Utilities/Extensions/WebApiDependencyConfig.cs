@@ -1,6 +1,5 @@
 ﻿using MangaFatihi.Infrastructure.Providers;
 using MangaFatihi.WebApi.Utilities.Providers;
-using MangaFatihi.WebApi.Utilities.Services;
 
 namespace MangaFatihi.WebApi.Utilities.Extensions
 {

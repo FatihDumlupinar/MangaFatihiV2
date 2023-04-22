@@ -1,49 +1,558 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MangaFatihi.WebUI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MangaFatihi.WebUI.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"] - MangaFatihi - Türkçe Manga Okuma Sitesi</title>
+
+    <link href="~/web-ui/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/web-ui/lib/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/web-ui/lib/owlcarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <link href="~/web-ui/lib/owlcarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="~/web-ui/css/main.css" rel="stylesheet" />
+
+    @RenderSection("Head", required: false)
+
 </head>
 <body>
+
+    <!--Header-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MangaFatihi.WebUI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">MangaFatihi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" href="#">Seriler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" href="#">Tim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Forum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled text-black-50" href="#">Oyunlar</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                               role="button" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                <i class="fa fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Hesap</a>
+                                <a class="dropdown-item" href="#">Çıkış</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" type="button"
+                                   data-toggle="modal" data-target="#mdlGiris">Giriş Yap</a>
+                                <a class="dropdown-item" type="button"
+                                   data-toggle="modal" data-target="#mdlKayitOl">Kayıt Ol</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <!--Navbar END-->
+        <!--Navbar Modal-->
+        <!-- Modal Giris -->
+        <div class="modal fade" id="mdlGiris" tabindex="-1"
+             role="dialog" aria-labelledby="mdlGirisLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Girişini Yap, Aramıza Gel!</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="grsEposta">E-Posta Adresin</label>
+                                <input type="email" class="form-control" id="grsEposta"
+                                       aria-describedby="emailHelp" placeholder="E-Posta Adresin...">
+                            </div>
+                            <div class="form-group">
+                                <label for="grsSifre">Şifren</label>
+                                <input type="password" class="form-control" id="grsSifre"
+                                       placeholder="Şifren...">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="SignInRemember">
+                                <label class="form-check-label" for="grsRemember">
+                                    Yorma beni Hatırla da, diğer seferlerde otomatik gir!
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Giriş Yap!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <footer class="border-top footer text-muted">
+        <!--Modal Kayit Ol-->
+        <div class="modal fade" id="mdlKayitOl" tabindex="-1"
+             role="dialog" aria-labelledby="mdlKayitOlLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Ne demek <b>Kayıt</b> değilim? Neyse kimse bakmıyorken çabuk <b>Kayıt</b> ol!
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="kytEposta">E-Posta Adresi</label>
+                                <input type="email" class="form-control" id="kytEposta"
+                                       aria-describedby="emailHelp" placeholder="E-Posta Adresi...">
+                                <small class="text-monospace">
+                                    Sisteme girerken kullanacağın e-posta adresini doğru gir!
+                                    İleri de şifreni unutursan, bu e-posta adresi işimize yarayacaktır.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="kytSifre">Şifre</label>
+                                <input type="password" class="form-control" id="kytSifre"
+                                       placeholder="Şifre...">
+                                <small>
+                                    6 ila 13 karakter arasında bir şifre gir!
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="kytKullanici">Kullanıcı Adın</label>
+                                <input type="password" class="form-control" id="kytKullanici"
+                                       placeholder="Kullanıcı Adın...">
+                                <small>
+                                    Sana içeri de nasıl seslenelim?
+                                </small>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="kytGercekAd">(Gerçek) Adın</label>
+                                    <input type="text" class="form-control" id="kytGercekAd"
+                                           placeholder="Adın..." required>
+                                    <small>
+                                        Sisteme girerken gerçek adını doğru girmelisin.
+                                        Bu sistemde tutacağımız bilgiler bizim için çok önemli!
+                                        Ama istersen profil sayfan da gerçek adını göstermeyebilirsin.
+                                        Kayıttan sonra Profil sayfana git.
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="kytGercekSoyad">(Gerçek) Soyadın</label>
+                                    <input type="text" class="form-control" id="kytGercekSoyad"
+                                           placeholder="Soyad..." required>
+                                    <small>
+                                        Yan taraftaki mesele burası için de geçerli.
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="kytDogumTrh">Doğum Tarihi</label>
+                                    <input type="date" class="form-control" id="kytDogumTrh"
+                                           placeholder="Doğum Tarihi..." required>
+                                    <small>
+                                        Bunu da doğru girmelisin.
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="kytil">Aramıza Nereden Katılıyorsun?</label>
+                                    <input type="text" class="form-control" id="lastname"
+                                           placeholder="İl..." required>
+                                    <small>Bak bu da önemli!</small>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Kayıt Ol!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Navbar Modal END-->
+        <!--Sliyder (10 tane popüler seri, seri adının ilk 16 karakteri sonrası ...)-->
+        <section id="sliyder">
+            <div class="container">
+                <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World">
+                                                    The_Hero_Who_Ret
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/deneme250.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                Hunter AGE
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/deneme1000x1500.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="hazure waku no 'joutai ijou skill' de saikyou ni natta ore ga subete wo juurin suru made">
+                                                    hazure waku no 'joutai
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World">
+                                                    The_Hero_Who_Ret
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/deneme250x500.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                Hunter AGE
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/hazure.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="hazure waku no 'joutai ijou skill' de saikyou ni natta ore ga subete wo juurin suru made">
+                                                    hazure waku no 'joutai
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="The_Hero_Who_Returned_Remains_the_Strongest_in_the_Modern_World">
+                                                    The_Hero_Who_Ret
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/hunter.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                Hunter AGE
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="card">
+                                    <a href="#">
+                                        <img src="img/hazure.jpg" class="card-img-top" alt="hazure.jpg">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#">
+                                                <abbr title="hazure waku no 'joutai ijou skill' de saikyou ni natta ore ga subete wo juurin suru made">
+                                                    hazure waku no 'joutai
+                                                </abbr>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <a href="#" class="text-info">+999. Bölüm</a>
+                                            <br>
+                                            <time class="text-monospace text-black-50" datetime="2019-08-24">
+                                                2019-08-24
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Sliyder END-->
+
+    </header>
+    <!--Header End-->
+
+    <!--MAIN-->
+    <main>
+
+        @RenderBody()
+
+    </main>
+    <!--MAIN END-->
+
+    <footer class="mt-5 bg-dark">
         <div class="container">
-            &copy; 2023 - MangaFatihi.WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row pt-2">
+                <div class="col-md-6 py-3">
+                    <h5>
+                        <strong>
+                            <a href="index.html">
+                                MangaFatihi
+                            </a>
+                        </strong>
+                    </h5>
+                    <p class="text-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla vehicula, odio fringilla interdum suscipit, ante quam egestas
+                        urna, non finibus massa sem eget orci. In non velit massa. Nam iaculis
+                        est tellus, quis condimentum tellus egestas nec. Nulla eleifend mauris
+                        velit, vitae molestie eros cursus vel. Nunc efficitur porttitor est,
+                        eget suscipit ligula maximus eget.
+                    </p>
+                    <button data-toggle="modal" data-target="#mesajYaz" class="btn btn-outline-info">
+                        Bize Yaz!
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <div class="list-group text-right">
+                        <div class="list-group-item list-group-item-action p-0 m-0 mt-2 bg-transparent border-0">
+                            <a href="#" class="text-info">Anasayfa</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action p-0 m-0 mt-2 bg-transparent border-0">
+                            <a href="#" class="text-info">Hakkımızda</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action p-0 m-0 mt-2 bg-transparent border-0">
+                            <a href="#" class="text-info">Gizlilik Politikası</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action p-0 m-0 mt-2 bg-transparent border-0">
+                            <a href="#" class="text-info">İletişim</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action p-0 m-0 mt-2 bg-transparent border-0">
+                            <a href="#" class="text-info">Forum</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-3 mb-2">
+                    <span class="text-white-50">
+                        &copy; Copyright 2019 <strong>MangaFatihi</strong>
+                        - <span class="bg-secondary p-1 rounded-pill">Design <i class="fa fa-code" aria-hidden="true"></i></span>
+                        & <span class="bg-secondary p-1 rounded-pill">Devepoler <i class="fa fa-coffee"></i></span>
+                        <em>
+                            <a href="https://www.fatihdumlupinar.com" class="text-truncate text-success">Fatih DUMLUPINAR</a>
+                        </em>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Mesaj Yaz! -->
+        <div class="modal fade" id="mesajYaz" tabindex="-1" role="dialog" aria-labelledby="mesajYazlabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mesajYazlabel">Bize Bir Mesajınız Mı Var?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="" action="" method="POST">
+                            <div class="form-group">
+                                <label for="eposta">E-Posta</label>
+                                <input type="email" class="form-control" id="eposta"
+                                       placeholder="E-Posta Adresiniz..." required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="isim">İsim</label>
+                                    <input type="text" class="form-control"
+                                           id="isim" placeholder="İsim..." required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="soyisim">Soyisim</label>
+                                    <input type="text" class="form-control" id="soyisim"
+                                           placeholder="Soyisim..." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="konu">Konu</label>
+                                    <select class="form-control" id="konu" required>
+                                        <option disabled selected>Konu Seçiniz...</option>
+                                        <option>Sayfa Hakkında Geri Bildirim</option>
+                                        <option>Bilgi Almak</option>
+                                        <option>Diğer...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mesaj">Mesaj</label>
+                                <textarea class="form-control" id="mesaj" rows="3"
+                                          required placeholder="Mesajınız..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-envelope"></i>
+                                Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/web-ui/js/jquery-3.4.1.js"></script>
+
+    <script src="~/web-ui/lib/owlcarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+
+    <script src="~/web-ui/js/popper.min.js"></script>
+
+    <script src="~/web-ui/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/web-ui/js/bootstrap.min.js"></script>
+
+    <script src="~/web-ui/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

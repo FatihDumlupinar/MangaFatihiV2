@@ -1,5 +1,6 @@
 using MangaFatihi.Application.Extensions;
 using MangaFatihi.Application.Seed;
+using MangaFatihi.Infrastructure.Extensions.ServiceProvider;
 using MangaFatihi.Persistence.Extensions;
 using MangaFatihi.WebApi.Utilities.Extensions;
 using MangaFatihi.WebApi.Utilities.Handlers;
@@ -18,6 +19,8 @@ builder.Services.AddHttpLoggingConfig();
 builder.Services.AddDbContextConfig(config);
 
 builder.Services.AddApplicationDependecyConfig();
+
+builder.Services.AddInfrastructureDependencyConfig();
 
 builder.Services.AddWebApiDependecyConfig();
 

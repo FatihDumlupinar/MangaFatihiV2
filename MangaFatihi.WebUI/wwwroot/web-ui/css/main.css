@@ -1,0 +1,96 @@
+
+/*Bütün Sayfa*/
+a{
+    text-decoration: none !important;
+    color:rgba(25, 0, 252, 0.867) !important;
+}
+
+a:hover{
+    color:rgb(4, 29, 141) !important;
+}
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.row .card .card-img-overlay{
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+/*HEADER*/
+
+    /*Navbar*/
+    nav .container .collapse li a.dropdown-item{
+        background-color: white;
+        border: none;
+        outline: none;
+    }
+    nav .container .collapse li a.dropdown-item:hover{
+        background-color: rgb(90, 102, 126) !important;
+        color:rgb(248, 248, 248) !important;
+    }
+
+    /*sliyder*/
+    #sliyder .container{
+        margin-top: 100px;
+    }
+    #sliyder .card img{
+        height: 300px;
+    }
+    #sliyder .card a,abbr {
+        cursor: pointer !important;
+    }
+    
+
+/*MEDIA QUARIES*/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { 
+
+    
+    /*Footer*/
+    footer .container .row .col-md-6{
+        font-size: 13px;
+    }
+    footer .container .row .col-md-6 .text-right{
+        text-align: left !important;
+    }
+ }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    
+    
+    /*Footer*/
+    footer .container .row .col-md-6{
+        font-size: 13px;
+    }
+    footer .container .row .col-md-6 .text-right{
+        text-align: left !important;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+    
+    /*Footer*/
+    footer .container .row .col-md-6{
+        font-size: 12px;
+    }
+
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+    /*Footer*/
+    footer .container .row .col-md-6{
+        font-size: 14px;
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    
+    
+ }

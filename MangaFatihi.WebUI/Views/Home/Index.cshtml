@@ -1,8 +1,807 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section Head {
+    <link href="~/web-ui/css/anasayfa.css" rel="stylesheet" />
+}
+
+<!--Tavsiye-->
+<section id="tavsiye" class="mt-3">
+    <div class="container">
+        <h4>
+            <a href="#">
+                <i class="fa fa-book "></i>
+                Tavsiye Okuma Listeleri
+            </a>
+        </h4>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <img src="img/deneme250.jpg" alt="">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title ">
+                            <a href="#">
+                                Başlık
+                            </a>
+                        </h5>
+                        <span class="text-white text-monospace">
+                            <time>2019-10-10</time>
+                        </span>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit...
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <img src="img/denem1500.jpg" alt="">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title ">
+                            <a href="#">
+                                Başlık
+                            </a>
+                        </h5>
+                        <span class="text-white text-monospace">
+                            <time>2019-10-10</time>
+                        </span>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit...
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <img src="img/deneme250.jpg" alt="">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title ">
+                            <a href="#">
+                                Başlık
+                            </a>
+                        </h5>
+                        <span class="text-white text-monospace">
+                            <time>2019-10-10</time>
+                        </span>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Tavsiye END-->
+<!--Reklam1-->
+<section id="Reklam1">
+    <div class="container bg-dark mt-5 " style="height: 150px;">
+        <div class="text-center text-white w-100 display-2 pt-4">REKLAM 1</div>
+    </div>
+</section>
+<!--Reklam1 END-->
+
+<section id="ortabolum">
+    <div class="container my-5">
+        <!--Row-->
+        <div class="row">
+
+            <!--Sol Taraf -->
+            <section class="col-md-8 mx-0 px-0">
+
+                <!--Yuklenen Bolumler-->
+                <section id="bolumler">
+
+                    <div class="border pl-2">
+                        <h4 class="pb-1 mb-1">En Son Eklenen Bölümler</h4>
+                        <span class="pt-1 mt-1 text-black-50 text-monospace">
+                            Manga=M, Manhwa=MW, Manhua=MH, Webtoon=W, Novel=N,
+                            <span class="text-truncate">Populer=<i class="fa fa-trophy bg-dark p-1" aria-hidden="true"></i></span>,
+                            <span class="text-truncate">Yeni=<i class="fa fa-star bg-dark p-1" aria-hidden="true"></i></span>
+                        </span>
+                    </div>
+
+                    <div class="row mt-3 ml-0 mr-0">
+
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/hunter.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <span id="seriTur">M</span>
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/hazure.jpg" alt="">
+                                    <i class="fa fa-trophy position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <span id="seriTur">MW</span>
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">+999.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">+999.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">+999.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <span id="seriTur">MH</span>
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  pl-0 mt-2">
+                            <div class="row ml-0 mr-0">
+                                <div class="d-flex flex-row">
+                                    <img src="img/deneme250x500.jpg" alt="">
+                                    <i class="fa fa-star position-absolute fa-2x"
+                                       aria-hidden="true"></i>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item m-0 p-0 ml-3" style="border-top: none;">
+                                            <a href="#">
+                                                Manga ismiManga ismiManga ismiManga ismiManga(50)...
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">3.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-11-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">2.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-10-24</time>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item m-0 p-0 ml-3">
+                                            <a href="#">1.Bölüm</a> -
+                                            <span class="text-muted">
+                                                <time>2019-09-24</time>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Yuklenen Bolumler END-->
+                <!--Reklam2-->
+                <section id="Reklam2">
+                    <div class="container bg-dark mt-5 " style="height: 150px;">
+                        <div class="text-center text-white w-100 display-2 pt-4">
+                            REKLAM 2
+                        </div>
+                    </div>
+                </section>
+                <!--Reklam2 END-->
+                <!--Kategori-->
+                <section id="kategoriler" class="mt-4">
+                    <h4>Kategoriler</h4>
+                    <div class="d-flex align-content-start flex-wrap bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <a href="#" class="btn btn-danger rounded-circle text-white">
+                                Hepsi
+                            </a>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <a href="#" class="btn btn-danger rounded-pill text-white">
+                                Yeniler
+                            </a>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <a href="#" class="btn btn-danger rounded-0 text-white">
+                                En Çok Okunanlar
+                            </a>
+                        </div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+                        <div class="p-2 bd-highlight"><a href="#" class="btn btn-light">kategori <span class="badge badge-warning">+999</span></a></div>
+
+                    </div>
+                </section>
+                <!--Kategori END-->
+                <!--Sosyal Medya-->
+                <section id="sosyalmedya" class="mt-4 px-2 mb-3">
+                    <h5>
+                        <a id="btnsosyalmedya" data-toggle="collapse" href="#sosyalmeydaCLLPS" role="button"
+                           aria-expanded="false" aria-controls="sosyalmeydaCLLPS">
+                            Sosyal Medya Hesaplarımız
+                        </a>
+                    </h5>
+                    <div class="collapse" id="sosyalmeydaCLLPS">
+                        <div class="row text-white">
+                            <div class="col-lg-4">
+                                <div style="background-color: blue;">Discord</div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div style="background-color: gray;">facebook</div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div style="background-color: green;">Twitter</div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-3">
+                            <a href="#"><i class="fa fa-instagram fa-2x px-5 "></i></a>
+                            <a href="#"><i class="fa fa-youtube fa-2x px-5"></i></a>
+                            <a href="#"><i class="fa fa-linkedin fa-2x px-5"></i></a>
+                        </div>
+                    </div>
+                </section>
+                <!--Sosyal Medya END-->
+
+            </section>
+            <!--Sol Taraf END-->
+            <!--Aside-->
+            <aside class="col-md-4">
+                <!--Arama Yeri-->
+                <form id="seriara">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"
+                               placeholder="Aranacak Kelimeyi Girin..."
+                               aria-label="Aranacak Kelimeyi Girin" aria-describedby="BtnAra" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="BtnAra">
+                                <i class="fa fa-search"></i>
+                                Ara
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!--Arama Yeri END-->
+                <!--Bağış -->
+                <div id="bagis">
+                    <a href="#" class="btn btn-outline-info btn-block btn-lg">
+                        Bağış Yapmak İster misiniz?
+                        <i class="fa fa-smile-o"></i>
+                    </a>
+                </div>
+                <!--Bağış END-->
+                <!--Sohbet/Muhabbet Köşesi-->
+                <section id="sohbet" class="mt-3 mb-2">
+                    <h4 class="text-center">
+                        <a href="#">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <strong>Sohbet/Muhabbet Köşesi</strong>
+                        </a>
+                    </h4>
+                    <div class="list-group">
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+
+                            <h5 class="mb-1">
+                                <strong>
+                                    Sohbet /Muhabbet Sohbet/ Muhabbet Başlık Sohbet/ (max60)...
+                                </strong>
+                            </h5>
+                            <small><time datetime="2019-08-24">2019-08-24</time></small>
+
+                            <p class="mb-1">Özet Bilgi (Max 50) Donec id elit non mi porta...</p>
+                            <small>Yazan: Fatih DUMLUPINAR</small>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+
+                            <h5 class="mb-1">
+                                <strong>Sohbet/Muhabbet Başlık</strong>
+                            </h5>
+                            <small><time datetime="2019-08-24">2019-08-23</time></small>
+
+                            <p class="mb-1">Özet Bilgi (Max 50) Donec id elit non mi porta...</p>
+                            <small>Yazan: Fatih DUMLUPINAR</small>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+
+                            <h5 class="mb-1">
+                                <strong>Sohbet/Muhabbet Başlık</strong>
+                            </h5>
+                            <small><time datetime="2019-08-24">2019-08-22</time></small>
+
+                            <p class="mb-1">Özet Bilgi (Max 50) Donec id elit non mi porta...</p>
+                            <small>Yazan: Fatih DUMLUPINAR</small>
+                        </a>
+
+                    </div>
+                </section>
+                <!--Sohbet/Muhabbet Köşesi END-->
+                <!--Populer Seriler-->
+                <section id="populerSeri" class="mt-3">
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item text-center bg-info text-light">
+                                <h4 class="mb-0">Popüler Seriler</h4>
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                <a href="#">
+                                    <strong>
+                                        <abbr title="Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı">
+                                            Seri AdıSeri AdıSeri AdıSeri
+                                        </abbr>
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                <a href="#">
+                                    <strong>
+                                        <abbr title="Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı">
+                                            Seri AdıSeri AdıSeri AdıSeri
+                                        </abbr>
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <a href="#">
+                                    <strong>
+                                        <abbr title="Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı">
+                                            Seri AdıSeri AdıSeri AdıSeri
+                                        </abbr>
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-primary">
+                                <a href="#">
+                                    <strong>
+                                        <abbr title="Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı">
+                                            Seri AdıSeri AdıSeri AdıSeri
+                                        </abbr>
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-light">
+                                <a href="#">
+                                    <strong>
+                                        Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-secondary">
+                                <a href="#">
+                                    <strong>
+                                        Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-dark"
+                                style="background-color: rgb(165, 164, 164); ">
+                                <a href="#">
+                                    <strong>
+                                        Seri AdıSeri AdıSeri AdıSeri AdıSeri AdıSeri Adı
+                                    </strong>
+                                </a>
+                                <br>
+                                <span>
+                                    <i class="fa fa-eye"></i>
+                                    999.999.999
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#">Macera</a>
+                                    <a href="#">Aksiyon</a>
+                                    <a href="#">Fantastik</a>
+                                    <a href="#">Komedi</a>
+                                    <a href="#">iseaki</a>
+                                    <a href="#">Harem</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!--Populer Seriler END-->
+
+            </aside>
+            <!--Aside END-->
+
+        </div>
+        <!--Row END-->
+        <!--Reklam3-->
+        <section id="Reklam3">
+            <div class="container bg-dark mt-5 " style="height: 150px;">
+                <div class="text-center text-white w-100 display-2 pt-4">
+                    REKLAM 3
+                </div>
+            </div>
+        </section>
+        <!--Reklam3 END-->
+    </div>
+</section>
+
+@section Scripts {
+
+}

@@ -1,0 +1,31 @@
+
+/*MAIN*/
+main{
+    margin-top: 100px;
+}
+
+/*Star Rating*/
+.checked {
+    color: orange;
+}
+
+/*listeleme*/
+    /*seriAramaSonuc*/
+    #listeleme #seriAramaSonuc img{
+        max-height: 200px;
+    }
+
+    /*kullaniciAramaSonuc*/
+    #listeleme #kullaniciAramaSonuc img{
+        height: 200px; 
+        width: 200px;
+    }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    /*kullaniciAramaSonuc*/
+    #listeleme #kullaniciAramaSonuc img{
+        height: 150px; 
+        width: 150px;
+    }
+ }

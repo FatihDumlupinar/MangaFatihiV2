@@ -1,0 +1,139 @@
+/*Profile MAIN*/
+#profil {
+    margin-top: 100px;
+}
+#profil #profilFoto{
+    height: 170px; 
+    width: 170px;
+}
+
+#profil #profilFoto img{
+    height: 170px; 
+    width: 170px; 
+    border: 1px solid black;
+}
+
+#profil .profilismi{
+    font-size: 4rem; 
+    margin-bottom: 20px;
+}
+
+#rozetler img{
+    max-height: 70x;
+    max-width: 100px; 
+    border:1px solid black; 
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#profil #pills-tab li a.active{
+    color:white !important;
+}
+#pills-hakkimda img{
+    max-width: 100%;
+}
+
+#pills-katkida .d-flex img{
+    max-height:100%; 
+    max-width: 150px;
+}
+#pills-katkida .d-flex .list-group-item {
+    border:none !important;
+}
+
+#pills-tavsiyelerim .card .card-img-overlay{
+    top: 35px;
+}
+
+#pills-seriler .d-flex img{
+    max-height:100%; 
+    max-width: 150px;
+}
+#pills-seriler .d-flex .list-group-item{
+    border:none !important;
+}
+
+#pills-kisiler .row .col-md-6{
+    max-width: 300px;
+    margin-right: 10px;
+}
+#pills-kisiler .row .col-md-6 img{
+    width: 100px; 
+    height: 100px; 
+    border:1px solid black
+}
+
+.kalinYazi{
+    font-weight: bolder;
+}
+
+
+/*MEDIA QUARIES*/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { 
+    
+    #profil #profilFoto{
+        text-align: center!important;
+    }
+    
+ }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    #profil #profilFoto{
+        text-align: center!important;
+    }
+    
+    #rozetAna {
+        margin-top: 25px !important;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+    #profil #butonlar a{
+        font-size: 14px !important;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    #pills-paylasimlarim .row .col-md-6 .list-group-item h5{
+        font-size: 1.1rem;
+    }
+    #pills-paylasimlarim .row .col-md-6 .list-group-item p{
+        font-size: 0.9rem !important;
+    }
+    #pills-paylasimlarim .row .col-md-6 .list-group-item small{
+        font-size: 0.7rem !important;
+    }
+
+    #pills-tavsiyelerim .card .card-img-overlay{
+        font-size: small;
+    }
+
+    #pills-seriler .d-flex img{
+        max-height:90%; 
+        max-width: 100px;
+    }
+
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+
+    #pills-seriler .d-flex img{
+        max-height:90%; 
+        max-width: 100px;
+    }
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    
+    
+ }

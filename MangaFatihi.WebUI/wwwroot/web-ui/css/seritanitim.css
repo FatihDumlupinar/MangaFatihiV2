@@ -1,0 +1,121 @@
+
+/*SeriTanitim*/
+#SeriTanitim {
+    margin-top: 100px !important;
+}
+
+    /*seriprofil*/
+    #SeriTanitim #seriprofil img{
+        max-height: 100%;
+    }
+
+    /*Begeni Stars*/
+    .br-theme-fontawesome-stars .br-widget a:after{
+        font-size: 24px;
+    }
+
+    #begeni .list-group-item {
+        border:none;
+        padding: 0 !important;
+        padding-left: .5rem!important;
+    }
+
+    /*not*/
+    #not{
+        background-color: rgba(0, 0, 0, 0.336);
+    }
+
+    /*takipci*/
+    .kutuyaAl{
+        border:1px solid black; 
+        margin-bottom: 0;
+    }
+
+/*MEDIA QUARIES*/
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { 
+    
+    #SeriTanitim{
+        width: fit-content;
+        margin: auto;
+    }
+
+    #SeriTanitim #seriprofil img{
+        max-width: 300px;
+        
+    }
+    #SeriTanitim #seriprofil{
+        text-align: center;
+        
+    }
+
+    #butonlar .btn{
+        padding: 2px;
+    }
+    
+    #not{
+        width: 96% !important;
+        margin-right:0 !important;
+        margin-left: 0 !important;
+        margin-bottom: 10px;
+    }
+
+    #bolumler.table-bordered td,#bolumler.table-bordered th{
+        font-size: small !important;
+    }
+
+ }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    #SeriTanitim #seriprofil img{
+        max-width: 300px;
+    }
+
+    #SeriTanitim #seriprofil{
+        text-align: center;      
+    }
+
+    #butonlar .btn{
+        padding: 5px;
+    }
+
+    #not{
+        width: 97.5% !important;
+        margin-right:0 !important;
+        margin-left: 0 !important;
+        margin-bottom: 10px;
+    }
+
+    #takipci.div{
+        background-color: black !important;
+    }
+    
+    #bolumler.table-bordered td,#bolumler.table-bordered th{
+        font-size: small !important;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+    #butonlar .btn{
+        padding: 2px;
+    }
+
+    #bolumler.table-bordered td,#bolumler.table-bordered th{
+        font-size: small !important;
+    }
+    
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+    #SeriTanitim{
+        width: fit-content;
+        margin: auto;
+    }
+    
+ }

@@ -1,0 +1,309 @@
+/*index MAIN*/
+
+    /*Tavsiye*/
+    #tavsiye .container .row .card img{
+        width: 100%;
+        height: 180px;
+    }
+
+    /*ortabolum*/
+    #ortabolum #bolumler i {
+        color:yellow;
+        background-color: rgba(155, 155, 155, 0.473);
+        padding: 1px;
+    }
+    #ortabolum #bolumler #seriTur {
+        color:rgb(255, 255, 255);
+        background-color: rgba(124, 122, 122, 0.9);
+        padding: 1px 2px;
+    }
+    #ortabolum #bolumler .col-lg-6 .row img {
+        width: 100px;
+        height: 100%;
+    }
+
+    /*Sosyal Medya*/
+    #sosyalmedya .collapse .col-lg-4 div{
+        height: 350px;  
+    }
+/*index MAIN END*/
+
+@media (max-width: 575.98px) { 
+    /*sliyder*/
+    #sliyder .card{ 
+        align-items: center !important;
+        height: 300px;
+        
+    }
+    #sliyder .card img{
+        width: 100%;
+        
+    }
+    #sliyder .card .card-body{
+        margin-top: 100px;
+        
+    }
+    #sliyder{
+        font-size: small;
+    }
+
+    /*tavsiye*/
+    #tavsiye .container {
+        margin-top: 50px !important;
+    }
+    #tavsiye .container .card{
+        margin-top: 80px;
+        width: 85% !important;
+        height: 140px !important;
+        font-size: smaller;
+    }
+    #tavsiye .container .row .card .card-img-overlay{
+       top: 0px !important;
+    }  
+
+    /*seriara*/
+    #seriara input{
+        
+        font-size: small;
+    }
+    
+    /*Bagis*/
+    #bagis .btn-block{
+        font-size:medium;
+    }
+
+    /*sohbet*/
+    #sohbet .list-group{
+        font-size:smaller;
+    }
+    #sohbet .list-group h5{
+        font-size:1.1rem ;
+    }
+    #sohbet h4{
+        font-size:1.3rem !important;
+    }
+
+    /*populerSeri*/
+    #populerSeri ul li{
+        font-size: 14px;
+    }
+
+    #populerSeri h4{
+        font-size:1.2rem !important;
+    }
+
+
+ }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    
+    /*sliyder*/
+    #sliyder .card img{
+        height: 150px;
+    }
+    #sliyder{
+        font-size: small;
+    }
+
+    /*tavsiye*/
+    #tavsiye .container {
+        margin-top: 50px !important;
+    }
+    #tavsiye .container .card{
+        margin-top: 80px;
+        width: 85% !important;
+        height: 140px !important;
+        font-size: smaller;
+    }
+    #tavsiye .container .row .card .card-img-overlay{
+        top: 0 !important;
+    }   
+
+    /*seriara*/
+    #seriara input{
+        
+        font-size: small;
+    }
+    
+    /*Bagis*/
+    #bagis .btn-block{
+        font-size:medium;
+    }
+
+    /*sohbet*/
+    #sohbet .list-group{
+        font-size:smaller;
+    }
+    #sohbet .list-group h5{
+        font-size:1.1rem ;
+    }
+    #sohbet h4{
+        font-size:1.3rem !important;
+    }
+
+    /*populerSeri*/
+    #populerSeri ul li{
+        font-size: 14px;
+    }
+
+    #populerSeri h4{
+        font-size:1.2rem !important;
+    }
+
+    
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+    /*sliyder*/
+    #sliyder .card img{
+        height: 170px;
+    }
+
+    /*tavsiye*/
+    #tavsiye .container {
+        font-size: small;
+    }
+
+    /*Reklamlar*/
+     #Reklam1 .container,#Reklam3 .container{
+        width: 80%;
+        height: 80% !important;
+    }
+    #Reklam2 .container{
+        width: 90%;
+        height: 75% !important;
+        font-size: medium !important;
+    }
+    .display-2{
+        font-size: 4rem !important;
+    }
+
+    /*Bolumler*/
+    #ortabolum #bolumler .border{
+        border:none !important; 
+    }
+    #ortabolum #bolumler .border h4{
+        font-size: 16px;
+    }
+    #ortabolum #bolumler .border span{
+        font-size: 14px;
+    }
+
+    /*Sosyal Medya*/
+    #sosyalmedya .collapse .col-lg-4{
+        height: 80%;  
+        width: 80%;
+        margin-top: 10px;
+    }
+    #sosyalmedya .collapse .justify-content-center{
+        justify-content: left !important;
+    }
+
+    /*seriara*/
+    #seriara input{
+        width: 100px;
+        font-size: small;
+    }
+
+    /*Bagis*/
+    #bagis .btn-block{
+        font-size:small;
+    }
+
+    /*sohbet*/
+    #sohbet .list-group{
+        font-size:small;
+    }
+    #sohbet .list-group h5{
+        font-size:medium;
+    }
+    #sohbet h4{
+        font-size:1.3rem !important;
+    }
+
+    /*populerSeri*/
+    #populerSeri ul li{
+        font-size: 12px;
+    }
+    #populerSeri ul strong{
+        font-size: 14px;
+    }
+    #populerSeri h4{
+        font-size:1.3rem !important;
+    }
+
+
+
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+    /*sliyder*/
+    #sliyder .card img{
+        height: 200px;
+    }
+
+    /*tavsiye*/
+    #tavsiye .container {
+        font-size: medium;
+    }
+    
+    /*Reklamlar*/
+    #Reklam1 .container{
+        width: 90%;
+        height: 90% !important;
+    }
+    #Reklam2 .container{
+        width: 80%;
+        height: 90% !important;
+    }
+    #Reklam3 .container{
+        width: 80%;
+        height: 90% !important;
+    }
+
+    /*Bölümler*/
+    #ortabolum #bolumler .col-lg-6 .row {
+        font-size: 14px;
+    }
+
+    /*Sosyal Medya*/
+    #sosyalmedya .collapse .col-lg-4{
+        height: 90%;  
+    }
+
+    /*Bagis*/
+    #bagis .btn-block{
+        font-size:16px;
+    }
+    
+    /*sohbet*/
+    #sohbet .list-group{
+        font-size:14px;
+    }
+
+    #sohbet .list-group h5{
+        font-size:18px;
+    }
+
+    /*populerSeri*/
+    #populerSeri ul li{
+        font-size: 14px;
+    }
+    #populerSeri ul strong{
+        font-size: 16px;
+    }
+
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    
+    
+ }

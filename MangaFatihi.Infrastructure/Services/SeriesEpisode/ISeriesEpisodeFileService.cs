@@ -1,5 +1,4 @@
-﻿using MangaFatihi.Infrastructure.Services.Base;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace MangaFatihi.Infrastructure.Services.SeriesEpisode
 {

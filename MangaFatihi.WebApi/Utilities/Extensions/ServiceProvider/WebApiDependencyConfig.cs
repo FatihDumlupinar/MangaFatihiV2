@@ -1,7 +1,7 @@
 ﻿using MangaFatihi.Infrastructure.Providers;
 using MangaFatihi.WebApi.Utilities.Providers;
 
-namespace MangaFatihi.WebApi.Utilities.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider
 {
     public static class WebApiDependencyConfig
     {

@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace MangaFatihi.WebApi.Utilities.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider
 {
     public static class JwtTokenConfig
     {

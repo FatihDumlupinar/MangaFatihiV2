@@ -1,32 +1,14 @@
-﻿using MangaFatihi.WebUI.Models;
+﻿using MangaFatihi.WebUI.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace MangaFatihi.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : CustomBaseController<HomeController>
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

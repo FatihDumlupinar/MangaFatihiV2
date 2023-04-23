@@ -2,7 +2,7 @@ using MangaFatihi.Application.Extensions;
 using MangaFatihi.Application.Seed;
 using MangaFatihi.Infrastructure.Extensions.ServiceProvider;
 using MangaFatihi.Persistence.Extensions;
-using MangaFatihi.WebApi.Utilities.Extensions;
+using MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider;
 using MangaFatihi.WebApi.Utilities.Handlers;
 using Microsoft.IdentityModel.Logging;
 

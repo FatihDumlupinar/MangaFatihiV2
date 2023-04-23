@@ -1,7 +1,7 @@
 ﻿using MangaFatihi.WebApi.Utilities.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MangaFatihi.WebApi.Utilities.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider
 {
     public static class ControllersConfig
     {

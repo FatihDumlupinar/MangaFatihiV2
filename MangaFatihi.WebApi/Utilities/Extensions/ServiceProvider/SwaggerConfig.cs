@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Xml.Linq;
 
-namespace MangaFatihi.WebApi.Utilities.Extensions
+namespace MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider
 {
     public static class SwaggerConfig
     {

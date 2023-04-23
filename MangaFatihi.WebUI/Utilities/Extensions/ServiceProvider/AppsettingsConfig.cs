@@ -1,4 +1,4 @@
-﻿namespace MangaFatihi.WebApi.Utilities.Extensions
+﻿namespace MangaFatihi.WebUI.Utilities.Extensions.ServiceProvider
 {
     public static class AppsettingsConfig
     {
@@ -9,8 +9,6 @@
             var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-
-            //eğer buradaki json file ı bulursa yukarıdakini okumaz, yoksa yukarıdakine bakar
             .AddJsonFile($"appsettings.{env}.json", optional: true)
             .AddEnvironmentVariables();
 

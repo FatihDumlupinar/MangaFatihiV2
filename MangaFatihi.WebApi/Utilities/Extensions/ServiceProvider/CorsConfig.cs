@@ -1,4 +1,4 @@
-﻿namespace MangaFatihi.WebApi.Utilities.Extensions
+﻿namespace MangaFatihi.WebApi.Utilities.Extensions.ServiceProvider
 {
     public static class CorsConfig
     {

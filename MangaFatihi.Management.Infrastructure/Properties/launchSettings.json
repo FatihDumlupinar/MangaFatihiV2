@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MangaFatihi.Management.Infrastructure": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55603;http://localhost:55614"
+    }
+  }
+}

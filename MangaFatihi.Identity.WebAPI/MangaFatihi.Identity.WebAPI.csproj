@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="4.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" />
+    <PackageReference Include="Serilog" Version="3.0.1" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MangaFatihi.Identity.Application\MangaFatihi.Identity.Application.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Identity.Infrastructure\MangaFatihi.Identity.Infrastructure.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Identity.Persistance\MangaFatihi.Identity.Persistance.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Appsettings\MangaFatihi.Shared.Appsettings.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Authorize\MangaFatihi.Shared.Authorize.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Models\MangaFatihi.Shared.Models.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Persistance\MangaFatihi.Shared.Persistance.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Utilities\MangaFatihi.Shared.Utilities.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+﻿using MangaFatihi.Admin.Domain.Common;
+
+namespace MangaFatihi.Domain.Entities
+{
+    public class StaticSeriesType : StaticBaseEntity
+    {
+
+        public virtual IList<Series> Series { get; set; }
+    }
+}

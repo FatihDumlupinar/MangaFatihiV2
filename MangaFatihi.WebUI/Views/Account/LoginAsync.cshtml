@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .google-button {
+            background-color: #4285F4;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .google-button img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            .google-button:hover {
+                background-color: #357ABD;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" action="/Account/Login">
+            <button class="google-button" type="submit" name="provider" value="Google">
+                <img src="google-icon.png" alt="Google Logo">
+                Login with Google
+            </button>
+        </form>
+    </div>
+</body>
+</html>

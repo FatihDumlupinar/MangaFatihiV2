@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.151" />
+		<PackageReference Include="Mediator.Abstractions" Version="2.1.0-preview.5" />
+		<PackageReference Include="Mediator.SourceGenerator" Version="2.1.0-preview.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.32.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MangaFatihi.Management.Infrastructure\MangaFatihi.Management.Infrastructure.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Authorize\MangaFatihi.Shared.Authorize.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Domain\MangaFatihi.Shared.Domain.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Persistance\MangaFatihi.Shared.Persistance.csproj" />
+	  <ProjectReference Include="..\MangaFatihi.Shared.Utilities\MangaFatihi.Shared.Utilities.csproj" />
+	</ItemGroup>
+	
+</Project>

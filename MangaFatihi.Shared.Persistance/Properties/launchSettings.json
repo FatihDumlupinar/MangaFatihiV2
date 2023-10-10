@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MangaFatihi.Shared.Persistance": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55609;http://localhost:55613"
+    }
+  }
+}
